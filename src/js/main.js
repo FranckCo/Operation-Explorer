@@ -11,9 +11,9 @@ import 'file-loader?name=[name].[ext]!../index.html'
 
 // `sparql-connect` needs a function to perform the remote calls. This function might not exist when the application is bootstrapped
 // since it needs authentication. The `authentication` module will take care of setting this funtion when it is available.
-import { setFetchQuery } from 'sparql-connect'
+import { setQueryURL } from 'sparql-connect'
 import { registerSetFetchQuery } from './utils/authentication'
-registerSetFetchQuery(setFetchQuery)
+registerSetFetchQuery(setQueryURL)
 
 ReactDOM.render(
   <Root/>,
