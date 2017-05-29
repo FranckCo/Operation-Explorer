@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router-dom'
 import { checkFromPassword, checkFromStorage } from '../utils/authentication'
 
 class Login extends Component {
