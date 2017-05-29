@@ -8,7 +8,7 @@ export default function Menu({ location }) {
         <div className="container-fluid">
           <div className="navbar-header">
             <Link className="navbar-brand" to="/">
-              <img className="logo" src="/img/home.png" />
+              <img className="logo" src="/img/gear.png" />
               Home
             </Link>
           </div>
