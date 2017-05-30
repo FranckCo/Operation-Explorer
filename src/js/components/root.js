@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { Router, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import configureStore from '../utils/configure-store'
 //We work with `redux`, so our app will need a reducer
@@ -14,7 +14,7 @@ export default class Root extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
+        <Router history={browserHistory}>
           { routes }
         </Router>
       </Provider>
