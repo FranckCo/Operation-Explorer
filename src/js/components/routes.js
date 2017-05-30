@@ -3,7 +3,7 @@ import { Route, IndexRoute } from 'react-router'
 
 import App from './app'
 import Login from './login'
-import Operations from './operations'
+import OperationExplorer from './operation-explorer'
 import FamilyExplorer from './family-explorer'
 
 import { requireAuth } from '../utils/authentication'
@@ -16,7 +16,7 @@ export default (
         <IndexRoute component={FamilyExplorer}/>
       </Route>
       <Route path="/operations">
-        <IndexRoute component={Operations} />
+        <IndexRoute component={OperationExplorer} />
       </Route>
     </Route>
   </div>
