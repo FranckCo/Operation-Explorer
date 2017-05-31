@@ -9,12 +9,6 @@ import '../css/style.css'
 // `index.html` will be automatically copied in the `dist` directory during the build process.
 import 'file-loader?name=[name].[ext]!../index.html'
 
-// `sparql-connect` needs a function to perform the remote calls. This function might not exist when the application is bootstrapped
-// since it needs authentication. The `authentication` module will take care of setting this funtion when it is available.
-import { setQueryURL } from 'sparql-connect'
-import { registerSetFetchQuery } from './utils/authentication'
-registerSetFetchQuery(setQueryURL)
-
 ReactDOM.render(
   <Root/>,
   document.getElementById('base'));
