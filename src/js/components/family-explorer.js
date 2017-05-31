@@ -23,7 +23,7 @@ const connector = sparqlConnect(queryBuilder, {
 function FamilyExplorer({ families }) {
   return(
     <div>
-      <FamiliList families={families}/>
+      <FamilyList families={families}/>
     </div>
   )
 }
