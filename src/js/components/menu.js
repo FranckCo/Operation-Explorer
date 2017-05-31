@@ -9,7 +9,6 @@ export default function Menu({ location }) {
           <div className="navbar-header">
             <Link className="navbar-brand" to="/">
               <img className="logo" src="/img/gear.png" />
-              Home
             </Link>
           </div>
           <div className="collapse navbar-collapse">

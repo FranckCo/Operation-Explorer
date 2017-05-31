@@ -1,11 +1,12 @@
 import React from 'react'
+import OperationList from './operation-list'
 
-export default function FamilyList({ families }) {
+export default function OperationList({ operations }) {
 
-  if (families.length === 0)
+  if (operations.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
-        The family list is empty.
+        The operation list is empty.
       </div>
     )
 
@@ -13,11 +14,11 @@ export default function FamilyList({ families }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>Family</th>
+          <th>Operation</th>
         </tr>
       </thead>
       <tbody>
-        { families.map(({ family, label }) =>
+        { operations.map(({ operation, label }) =>
           <tr key={family}>
             <td>
               { label }
@@ -30,5 +31,5 @@ export default function FamilyList({ families }) {
 }
 
 FamilyList.propTypes = {
-  families: React.PropTypes.array.isRequired
+  operations: React.PropTypes.array.isRequired
 }
