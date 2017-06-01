@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function FamilyList({ families }) {
+export default function SeriesList({ series }) {
 
-  if (families.length === 0)
+  if (series.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
-        The family list is empty.
+        The series list is empty.
       </div>
     )
 
@@ -13,12 +13,12 @@ export default function FamilyList({ families }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>Famille</th>
+          <th>Série</th>
         </tr>
       </thead>
       <tbody>
-        { families.map(({ family, label }) =>
-          <tr key={family}>
+        { series.map(({ seriesItem, label }) =>
+          <tr key={seriesItem}>
             <td>
               { label }
             </td>
@@ -29,6 +29,6 @@ export default function FamilyList({ families }) {
   )
 }
 
-FamilyList.propTypes = {
-  families: React.PropTypes.array.isRequired
+SeriesList.propTypes = {
+  series: React.PropTypes.array.isRequired
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { sparqlConnect } from 'sparql-connect'
+import OperationList from './operation-list'
 
 const queryBuilder = () => `
   PREFIX insee: <http://rdf.insee.fr/def/base#>
@@ -18,8 +19,10 @@ const connector = sparqlConnect(queryBuilder, {
 
 function OperationExplorer({ operations }) {
 
-  return (
-    <h1>Statistical operations</h1>
+  return(
+    <div>
+      <OperationList operations={operations}/>
+    </div>
   )
 }
 

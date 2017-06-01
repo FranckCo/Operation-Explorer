@@ -1,5 +1,4 @@
 import React from 'react'
-import OperationList from './operation-list'
 
 export default function OperationList({ operations }) {
 
@@ -19,7 +18,7 @@ export default function OperationList({ operations }) {
       </thead>
       <tbody>
         { operations.map(({ operation, label }) =>
-          <tr key={family}>
+          <tr key={operation}>
             <td>
               { label }
             </td>
@@ -30,6 +29,6 @@ export default function OperationList({ operations }) {
   )
 }
 
-FamilyList.propTypes = {
+OperationList.propTypes = {
   operations: React.PropTypes.array.isRequired
 }
