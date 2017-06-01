@@ -27,5 +27,5 @@ function OperationExplorer({ operations }) {
 }
 
 export default connector(OperationExplorer, {
-  loading: () => <span>Loading operation list</span>
+  loading: () => <span>Chargement de la liste des opérations</span>
 })

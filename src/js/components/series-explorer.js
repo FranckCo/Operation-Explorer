@@ -29,5 +29,5 @@ function SeriesExplorer({ series }) {
 }
 
 export default connector(SeriesExplorer, {
-  loading: () => <span>Loading series list</span>
+  loading: () => <span>Chargement de la liste des séries</span>
 })

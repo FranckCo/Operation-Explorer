@@ -29,5 +29,5 @@ function FamilyExplorer({ families }) {
 }
 
 export default connector(FamilyExplorer, {
-  loading: () => <span>Loading family list</span>
+  loading: () => <span>Chargement de la liste des familles</span>
 })
