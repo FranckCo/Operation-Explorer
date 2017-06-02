@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 export default function OperationList({ operations }) {
 
   if (operations.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
-        The operation list is empty.
+        La liste des opérations est vide.
       </div>
     )
 
@@ -20,7 +21,9 @@ export default function OperationList({ operations }) {
         { operations.map(({ operation, label }) =>
           <tr key={operation}>
             <td>
-              { label }
+              <Link to={operation.substring(19)}>
+                { label }
+              </Link>
             </td>
           </tr>)
         }

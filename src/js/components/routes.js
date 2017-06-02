@@ -6,6 +6,8 @@ import Login from './login'
 import FamilyExplorer from './family-explorer'
 import OrganizationExplorer from './organization-explorer'
 import OperationExplorer from './operation-explorer'
+import OperationDetails from './operation-details'
+import ProductExplorer from './product-explorer'
 import SeriesExplorer from './series-explorer'
 
 import { requireAuth } from '../utils/authentication'
@@ -21,10 +23,16 @@ export default (
         <IndexRoute component={SeriesExplorer}/>
       </Route>
       <Route path="/operations">
-        <IndexRoute component={OperationExplorer} />
+        <IndexRoute component={OperationExplorer}/>
+        <Route path="operation/:operation"
+               component={OperationDetails}
+               transform="http://id.insee.fr/operations/operation/:operation"/>
+      </Route>
+      <Route path="/products">
+        <IndexRoute component={ProductExplorer}/>
       </Route>
       <Route path="/producers">
-        <IndexRoute component={OrganizationExplorer} />
+        <IndexRoute component={OrganizationExplorer}/>
       </Route>
     </Route>
   </div>
