@@ -1,6 +1,3 @@
-var webpack = require('webpack');
-var precss = require('precss');
-var autoprefixer = require('autoprefixer');
 var TransferWebpackPlugin = require('transfer-webpack-plugin');
 var path = require('path');
 
@@ -9,13 +6,38 @@ module.exports = {
     './src/js/main.js'
   ],
   module: {
-    loaders: [
-      { test: /\.css$/, loader: 'style-loader!css-loader!postcss-loader' },
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              autoprefixer: false
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: function() {
+                return [
+                  require('precss'),
+                  require('autoprefixer')({ browsers: ['> 5%'] })
+                ];
+              }
+            }
+          }
+        ]
+      },
       {
         test: /\.js$/,
+        include: [path.resolve(__dirname, 'src')],
         exclude: /node_modules/,
-        loader: ['babel'],
-        query: {
+        loader: ['babel-loader'],
+        options: {
           'presets': ['react', 'es2015'],
           'plugins': [
             'transform-object-rest-spread'
@@ -23,9 +45,6 @@ module.exports = {
         }
       }
     ]
-  },
-  postcss: function () {
-    return [precss, autoprefixer({ browsers: ['> 5%'] })]
   },
   plugins: [
     new TransferWebpackPlugin([
@@ -38,10 +57,10 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['', '.js']
+    extensions: ['.js']
   },
   output: {
     path: __dirname + '/dist',
     filename: './js/operation-explorer.js'
   }
-}
+};
