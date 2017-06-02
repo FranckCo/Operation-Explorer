@@ -1,5 +1,5 @@
-import React from 'react'
-import { sparqlConnect } from 'sparql-connect'
+import React from 'react';
+import { sparqlConnect } from 'sparql-connect';
 
 /**
   * Builds the query that retrieves the details on a given NSI.
@@ -15,14 +15,15 @@ const queryBuilder = operation => `
 
 const connector = sparqlConnect(queryBuilder, {
   queryName: 'operationDetails',
-  params: ['operation']
+  params: ['operation'],
+  singleResult: true
 });
 
-function OperationDetails({ operationDetails }) {
+function OperationDetails({ label }) {
   return (
     <div>
       Opération
-      <h1>{operationDetails[0].label}</h1>
+      <h1>{label}</h1>
     </div>
   );
 }
