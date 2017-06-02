@@ -1,16 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React from 'react';
+import { Link } from 'react-router';
+import { transform } from '../utils/router-mapping';
+
+export const linkOperation = transform(
+  'http://id.insee.fr/operations/operation/:operation',
+  'operations/operation/:operation'
+);
 
 export default function OperationList({ operations }) {
-
   if (operations.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
         La liste des opérations est vide.
       </div>
-    )
+    );
 
-  return(
+  return (
     <table className="table table-hover">
       <thead>
         <tr>
@@ -18,20 +23,20 @@ export default function OperationList({ operations }) {
         </tr>
       </thead>
       <tbody>
-        { operations.map(({ operation, label }) =>
+        {operations.map(({ operation, label }) => (
           <tr key={operation}>
             <td>
-              <Link to={operation.substring(19)}>
-                { label }
+              <Link to={linkOperation(operation)}>
+                {label}
               </Link>
             </td>
-          </tr>)
-        }
+          </tr>
+        ))}
       </tbody>
     </table>
-  )
+  );
 }
 
 OperationList.propTypes = {
   operations: React.PropTypes.array.isRequired
-}
+};
