@@ -19,7 +19,7 @@ export default function SeriesList({ series }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>Séries</th>
+          <th>Série</th>
         </tr>
       </thead>
       <tbody>

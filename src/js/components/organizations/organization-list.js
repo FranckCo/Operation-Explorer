@@ -13,7 +13,7 @@ export default function OrganizationList({ organizations }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>Organisations</th>
+          <th>Organisation</th>
         </tr>
       </thead>
       <tbody>

@@ -19,7 +19,7 @@ export default function OperationList({ operations }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>Opérations</th>
+          <th>Opération</th>
         </tr>
       </thead>
       <tbody>
