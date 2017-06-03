@@ -22,8 +22,7 @@ const connector = sparqlConnect(queryBuilder, {
 function OperationDetails({ label }) {
   return (
     <div>
-      Opération
-      <h1>{label}</h1>
+      <h1>Opération {label}</h1>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import FamilyExplorer from './family-explorer';
+import FamilyDetails from './family-details';
 import OperationExplorer from './operation-explorer';
 import OperationDetails from './operation-details';
 import SeriesExplorer from './series-explorer';
@@ -17,7 +18,12 @@ export default (
       <IndexRoute component={SeriesExplorer} />
     </Route>
     <Route
-      path="series/:series"
+      path="/family/:family"
+      component={FamilyDetails}
+      transform="http://id.insee.fr/operations/family/:family"
+    />
+    <Route
+      path="/series/:series"
       component={SeriesDetails}
       transform="http://id.insee.fr/operations/series/:series"
     />

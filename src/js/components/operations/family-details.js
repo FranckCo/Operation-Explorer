@@ -2,29 +2,29 @@ import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 
 /**
-  * Builds the query that retrieves the details on a given operation series.
+  * Builds the query that retrieves the details on a given operation family.
   */
-const queryBuilder = series => `
+const queryBuilder = family => `
   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
   SELECT ?label
   FROM <http://rdf.insee.fr/graphes/operations>
   WHERE {
-    <${series}> skos:prefLabel ?label .
+    <${family}> skos:prefLabel ?label .
   }
 `;
 
 const connector = sparqlConnect(queryBuilder, {
-  queryName: 'seriesDetails',
-  params: ['series'],
+  queryName: 'familyDetails',
+  params: ['family'],
   singleResult: true
 });
 
-function SeriesDetails({ label }) {
+function FamilyDetails({ label }) {
   return (
     <div>
-      <h1>Série {label}</h1>
+      <h1>Famille {label}</h1>
     </div>
   );
 }
 
-export default connector(SeriesDetails);
+export default connector(FamilyDetails);

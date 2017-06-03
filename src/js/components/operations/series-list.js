@@ -4,7 +4,7 @@ import { transform } from '../../utils/router-mapping';
 
 export const seriesLink = transform(
   'http://id.insee.fr/operations/series/:series',
-  'operations/series/:series'
+  'series/:series'
 );
 
 export default function SeriesList({ series }) {
