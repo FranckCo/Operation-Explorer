@@ -9,6 +9,7 @@ import OperationExplorer from './operation-explorer';
 import OperationDetails from './operation-details';
 import ProductExplorer from './product-explorer';
 import SeriesExplorer from './series-explorer';
+import SeriesDetails from './series-details';
 
 import { requireAuth } from '../utils/authentication';
 
@@ -28,6 +29,11 @@ export default (
           path="operation/:operation"
           component={OperationDetails}
           transform="http://id.insee.fr/operations/operation/:operation"
+        />
+        <Route
+          path="series/:series"
+          component={SeriesDetails}
+          transform="http://id.insee.fr/operations/series/:series"
         />
       </Route>
       <Route path="/products">
