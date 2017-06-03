@@ -14,10 +14,10 @@ export default function Menu({ location }) {
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
             <li>
-              <Link className={/^\/families/.test(location.pathname) && 'active'} to="/families">Familles</Link>
+              <Link className={/^\/families/.test(location.pathname) && 'active'} to="/operations/families">Familles</Link>
             </li>
             <li>
-              <Link className={/^\/series/.test(location.pathname) && 'active'} to="/series">Séries</Link>
+              <Link className={/^\/series/.test(location.pathname) && 'active'} to="/operations/series">Séries</Link>
             </li>
             <li>
               <Link className={/^\/operations/.test(location.pathname) && 'active'} to="/operations">Opérations</Link>
