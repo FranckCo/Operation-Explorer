@@ -1,6 +1,7 @@
 import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import SeriesByFamily from './series-by-family';
+import OperationsByFamily from './operations-by-family';
 
 /**
   * Builds the query that retrieves the details on a given operation family.
@@ -25,6 +26,7 @@ function FamilyDetails({family, label }) {
     <div>
       <h1>Famille {label}</h1>
       <SeriesByFamily family={family} />
+      <OperationsByFamily family={family} />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
+import OperationsBySeries from './operations-by-series';
 
 /**
   * Builds the query that retrieves the details on a given operation series.
@@ -19,10 +20,11 @@ const connector = sparqlConnect(queryBuilder, {
   singleResult: true
 });
 
-function SeriesDetails({ label }) {
+function SeriesDetails({ series, label }) {
   return (
     <div>
       <h1>Série {label}</h1>
+      <OperationsBySeries series={series} />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import { sparqlConnect } from 'sparql-connect'
+import { sparqlConnect } from 'sparql-connect';
+import SeriesList from './series-list';
 
 /**
  * Builds the query that retrieves the series on a given family.
@@ -13,6 +14,7 @@ const queryBuilder = family => `
     <${family}> dcterms:hasPart ?series .
     ?series skos:prefLabel ?label .
   }
+  ORDER BY ?series
 `
 
 const connector = sparqlConnect(queryBuilder, {
@@ -24,26 +26,7 @@ function SeriesByFamily({ seriesByFamily }) {
   if (seriesByFamily.length === 0) {
     return <span>Cette famille ne contient aucune série</span>
   }
-  return (
-    <div>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Série</th>
-          </tr>
-        </thead>
-        <tbody>
-          {seriesByFamily.map(({ series, label }) =>
-            <tr key={series}>
-              <td>
-                { label }
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    </div>
-  );
+  return <SeriesList series={seriesByFamily} />
 }
 
 export default connector(SeriesByFamily, {
