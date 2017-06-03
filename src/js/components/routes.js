@@ -3,7 +3,7 @@ import { Route, IndexRoute } from 'react-router';
 
 import App from './app';
 import Login from './login';
-import FamilyExplorer from './family-explorer';
+import FamilyExplorer from './operations/family-explorer';
 import OrganizationExplorer from './organization-explorer';
 import OperationExplorer from './operation-explorer';
 import OperationDetails from './operation-details';
