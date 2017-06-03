@@ -8,8 +8,8 @@ import OrganizationExplorer from './organization-explorer';
 import OperationExplorer from './operations/operation-explorer';
 import OperationDetails from './operations/operation-details';
 import ProductExplorer from './product-explorer';
-import SeriesExplorer from './series-explorer';
-import SeriesDetails from './series-details';
+import SeriesExplorer from './operations/series-explorer';
+import SeriesDetails from './operations/series-details';
 
 import { requireAuth } from '../utils/authentication';
 
