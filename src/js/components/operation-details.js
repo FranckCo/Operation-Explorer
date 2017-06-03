@@ -1,7 +1,7 @@
-import React from 'react'
-import { sparqlConnect } from 'sparql-connect'
+import React from 'react';
+import { sparqlConnect } from 'sparql-connect';
 
- /**
+/**
   * Builds the query that retrieves the details on a given NSI.
   */
 const queryBuilder = operation => `
@@ -11,20 +11,21 @@ const queryBuilder = operation => `
   WHERE {
     <${operation}> skos:prefLabel ?label .
   }
-`
+`;
 
 const connector = sparqlConnect(queryBuilder, {
-  queryName: 'OperationDetails',
-  params: ['operation']
-})
+  queryName: 'operationDetails',
+  params: ['operation'],
+  singleResult: true
+});
 
-function OperationDetails({ operation, label }) {
+function OperationDetails({ label }) {
   return (
     <div>
       Opération
       <h1>{label}</h1>
     </div>
-  )
+  );
 }
 
-export default connector(OperationDetails)
+export default connector(OperationDetails);
