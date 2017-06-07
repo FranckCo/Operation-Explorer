@@ -7,7 +7,7 @@ const queryBuilder = () => `
   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
   PREFIX org:<http://www.w3.org/ns/org#>
   SELECT ?organization ?name
-  FROM <http://rdf.insee.fr/graphes/organizations>
+  FROM <http://rdf.insee.fr/graphes/organisations>
   WHERE {
   	?organization a org:Organization ; skos:prefLabel ?name .
     FILTER (lang(?name) = 'fr')

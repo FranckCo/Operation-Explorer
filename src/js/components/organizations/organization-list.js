@@ -1,11 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router';
+import { transform } from '../../utils/router-mapping';
+
+export const linkOrganization = transform(
+  'http://lannuaire.service-public.fr/:organization',
+  'organisations/:organization'
+);
 
 export default function OrganizationList({ organizations }) {
-
   if (organizations.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
-        La liste des opérations est vide
+        La liste des organisations est vide
       </div>
     )
 
@@ -17,13 +23,15 @@ export default function OrganizationList({ organizations }) {
         </tr>
       </thead>
       <tbody>
-        { organizations.map(({ organization, name }) =>
+        {organizations.map(({ organization, name }) => (
           <tr key={organization}>
             <td>
-              { name }
+              <Link to={linkOrganization(organization)}>
+                {name}
+              </Link>
             </td>
-          </tr>)
-        }
+          </tr>
+        ))}
       </tbody>
     </table>
   )
