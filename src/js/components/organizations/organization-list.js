@@ -34,7 +34,7 @@ export default function OrganizationList({ organizations }) {
         ))}
       </tbody>
     </table>
-  )
+  );
 }
 
 OrganizationList.propTypes = {

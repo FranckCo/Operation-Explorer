@@ -10,6 +10,7 @@ const queryBuilder = operation => `
   FROM <http://rdf.insee.fr/graphes/organisations>
   WHERE {
     <${operation}> skos:prefLabel ?label .
+    FILTER (lang(?label) = 'fr')
   }
 `;
 

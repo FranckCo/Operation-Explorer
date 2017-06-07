@@ -23,10 +23,10 @@ export default function Menu({ location }) {
               <Link className={/^\/operations/.test(location.pathname) && 'active'} to="/operations">Opérations</Link>
             </li>
             <li>
-              <Link className={/^\/products/.test(location.pathname) && 'active'} to="/products">Produits</Link>
+              <Link className={/^\/products/.test(location.pathname) && 'active'} to="/produits">Produits</Link>
             </li>
             <li>
-              <Link className={/^\/producers/.test(location.pathname) && 'active'} to="/producers">Producteurs</Link>
+              <Link className={/^\/producers/.test(location.pathname) && 'active'} to="/organisations">Producteurs</Link>
             </li>
             </ul>
           </div>
