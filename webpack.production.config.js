@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var TransferWebpackPlugin = require('transfer-webpack-plugin');
 var path = require('path');
 
@@ -36,7 +37,7 @@ module.exports = {
         test: /\.js$/,
         include: [path.resolve(__dirname, 'src')],
         exclude: /node_modules/,
-        loader: ['babel-loader'],
+        loader: 'babel-loader',
         options: {
           'presets': ['react', 'es2015'],
           'plugins': [
@@ -48,7 +49,8 @@ module.exports = {
   },
   plugins: [
     new TransferWebpackPlugin([
-        { from: 'img', to: 'img' }
+        { from: 'img', to: 'img' },
+        { from: 'css', to: 'css' }
     ], path.join(__dirname, 'src')),
     new webpack.DefinePlugin({
       'process.env': {
