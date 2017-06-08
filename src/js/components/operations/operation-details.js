@@ -6,10 +6,13 @@ import { sparqlConnect } from 'sparql-connect';
   */
 const queryBuilder = operation => `
   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-  SELECT ?label
+  PREFIX dcterms: <http://purl.org/dc/terms/>
+  SELECT ?label ?abstract
   FROM <http://rdf.insee.fr/graphes/operations>
   WHERE {
-    <${operation}> skos:prefLabel ?label .
+    <${operation}> skos:prefLabel ?label ; dcterms:abstract ?abstract .
+    FILTER (lang(?label) = 'fr')
+    FILTER (lang(?abstract) = 'fr')
   }
 `;
 
@@ -19,10 +22,11 @@ const connector = sparqlConnect(queryBuilder, {
   singleResult: true
 });
 
-function OperationDetails({ label }) {
+function OperationDetails({ label , abstract}) {
   return (
     <div>
       <h1>Opération {label}</h1>
+      <h2>{abstract}</h2>
     </div>
   );
 }

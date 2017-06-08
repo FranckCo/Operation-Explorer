@@ -8,10 +8,13 @@ import OperationsByFamily from './operations-by-family';
   */
 const queryBuilder = family => `
   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-  SELECT ?label
+  PREFIX dcterms: <http://purl.org/dc/terms/>
+  SELECT ?label ?abstract
   FROM <http://rdf.insee.fr/graphes/operations>
   WHERE {
-    <${family}> skos:prefLabel ?label .
+    <${family}> skos:prefLabel ?label ; dcterms:abstract ?abstract .
+    FILTER (lang(?label) = 'fr')
+    FILTER (lang(?abstract) = 'fr')
   }
 `;
 
@@ -21,10 +24,11 @@ const connector = sparqlConnect(queryBuilder, {
   singleResult: true
 });
 
-function FamilyDetails({family, label }) {
+function FamilyDetails({family, label , abstract}) {
   return (
     <div>
       <h1>Famille {label}</h1>
+      <h2>{abstract}</h2>
       <SeriesByFamily family={family} />
       <OperationsByFamily family={family} />
     </div>
