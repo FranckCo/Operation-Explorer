@@ -8,7 +8,7 @@ import { sparqlConnect } from 'sparql-connect';
 const queryBuilder = organization => `
   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
   PREFIX org: <http://www.w3.org/ns/org#>
-  SELECT ?daughter ?mother ?type ?name
+  SELECT ?mother ?daughter ?type ?name
   FROM <http://rdf.insee.fr/graphes/organisations>
   WHERE {
 	  { ?mother org:hasUnit <${organization}> ; skos:prefLabel ?name .
@@ -31,13 +31,37 @@ const connector = sparqlConnect(queryBuilder, {
 function OrganizationHierarchy({ organizationHierarchy }) {
   console.log(organizationHierarchy);
   if (organizationHierarchy.length === 0) {
-    return <span>Aucune information sur la hiérarchie de cette organisation</span>
+    return <span>Cette organisation ne possède ni mère, ni fille</span>
   }
+  var mothers = organizationHierarchy.filter((org) => (org.mother.length > 0));
+  var daughters = organizationHierarchy.filter((org) => (org.daughter.length > 0));
+  console.log(mothers);
   return (
     <div>
-      <h2>Hiérachie ici</h2>
+      <h2>{getTitle(mothers, 'mère')}</h2>
+      <ul>
+        {mothers.map(({ mother, name, type }) => (
+          <li>{mother + ((type === 'F') ? ' (lien fonctionnel)' : '')}</li>
+        ))}
+      </ul>
+      <h2>{getTitle(daughters, 'fille')}</h2>
+      <ul>
+        {daughters.map(({ daughter, name, type }) => (
+          <li>{daughter + ((type === 'F') ? ' (lien fonctionnel)' : '')}</li>
+        ))}
+      </ul>
+      // TODO Add the series produced by the producer
     </div>
   );
+}
+
+/**
+* Utility function: gets the correct title depending on the type and number of organizations
+*/
+function getTitle(orgs, type) {
+  if (orgs.length === 0) return ('Aucune organisation ' + type);
+  if (orgs.length === 1) return ('Organisation ' + type);
+  return ('Organisations ' + type + 's');
 }
 
 export default connector(OrganizationHierarchy);

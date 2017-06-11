@@ -28,7 +28,7 @@ function OrganizationDetails({ organization, label, seeAlso }) {
   return (
     <div>
       <h1>Organisation {label}</h1>
-      <p>Voir <a href={seeAlso}>site web</a></p>
+      {(seeAlso.length > 0) && <p>Voir <a href={seeAlso}>site web</a></p>}
       <OrganizationHierarchy organization={organization}/>
     </div>
   );
