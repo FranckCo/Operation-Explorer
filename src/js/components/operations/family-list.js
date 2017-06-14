@@ -1,11 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { transform } from '../../utils/router-mapping';
-
-export const familyLink = transform(
-  'http://id.insee.fr/operations/family/:family',
-  'family/:family'
-);
+import { familyLink } from './routes';
 
 export default function FamilyList({ families }) {
   if (families.length === 0)

@@ -7,6 +7,22 @@ import OperationExplorer from './operation-explorer';
 import OperationDetails from './operation-details';
 import SeriesExplorer from './series-explorer';
 import SeriesDetails from './series-details';
+import { transform } from '../../utils/router-mapping';
+
+export const familyLink = transform(
+  'http://id.insee.fr/operations/family/:family',
+  'family/:family'
+);
+
+export const seriesLink = transform(
+  'http://id.insee.fr/operations/series/:series',
+  'series/:series'
+);
+
+export const operationLink = transform(
+  'http://id.insee.fr/operations/operation/:operation',
+  'operations/operation/:operation'
+);
 
 export default (
   <Route path="/operations">

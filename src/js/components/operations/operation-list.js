@@ -1,11 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { transform } from '../../utils/router-mapping';
-
-export const linkOperation = transform(
-  'http://id.insee.fr/operations/operation/:operation',
-  'operations/operation/:operation'
-);
+import { operationLink } from './routes';
 
 export default function OperationList({ operations }) {
   if (operations.length === 0)
@@ -26,7 +21,7 @@ export default function OperationList({ operations }) {
         {operations.map(({ operation, label }) => (
           <tr key={operation}>
             <td>
-              <Link to={linkOperation(operation)}>
+              <Link to={operationLink(operation)}>
                 {label}
               </Link>
             </td>

@@ -1,11 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { transform } from '../../utils/router-mapping';
-
-export const seriesLink = transform(
-  'http://id.insee.fr/operations/series/:series',
-  'series/:series'
-);
+import { seriesLink } from './routes';
 
 export default function SeriesList({ series }) {
   if (series.length === 0)
