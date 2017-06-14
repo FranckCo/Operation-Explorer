@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import ReactTooltip from 'react-tooltip';
 import { sparqlConnect } from 'sparql-connect';
 import OrganizationHierarchy from './organization-hierarchy';
 
@@ -27,8 +28,14 @@ const connector = sparqlConnect(queryBuilder, {
 function OrganizationDetails({ organization, label, seeAlso }) {
   return (
     <div>
-      <h1>Organisation {label}</h1>
-      {(seeAlso.length > 0) && <p>Voir <a href={seeAlso}>site web</a></p>}
+      <h1>Organisation {label}
+        {(seeAlso.length > 0) &&
+          <a href={seeAlso}>
+            <img className="dila-logo" data-tip="Voir sur Service-Public.fr" src="/img/marianne.png" />
+          </a>
+        }
+      </h1>
+      <ReactTooltip />
       <OrganizationHierarchy organization={organization}/>
     </div>
   );
