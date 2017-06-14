@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { sparqlConnect } from 'sparql-connect';
+import { organizationLink } from './routes';
 
 /**
   * Builds the query that retrieves the hierarchy of a given organization.
@@ -41,13 +42,19 @@ function OrganizationHierarchy({ organizationHierarchy }) {
       <h2>{getTitle(mothers, 'mère')}</h2>
       <ul>
         {mothers.map(({ mother, name, type }) => (
-          <li>{mother + ((type === 'F') ? ' (lien fonctionnel)' : '')}</li>
+          <li key={mother}>
+            <Link to={organizationLink(mother)}>{name}</Link>
+            <span>{((type === 'F') ? ' (lien fonctionnel)' : '')}</span>
+          </li>
         ))}
       </ul>
       <h2>{getTitle(daughters, 'fille')}</h2>
       <ul>
         {daughters.map(({ daughter, name, type }) => (
-          <li>{daughter + ((type === 'F') ? ' (lien fonctionnel)' : '')}</li>
+          <li key={daughter}>
+            <Link to={organizationLink(daughter)}>{name}</Link>
+            <span>{((type === 'F') ? ' (lien fonctionnel)' : '')}</span>
+          </li>
         ))}
       </ul>
       // TODO Add the series produced by the producer

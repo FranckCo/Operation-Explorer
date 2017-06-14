@@ -1,11 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { transform } from '../../utils/router-mapping';
-
-export const linkOrganization = transform(
-  'http://lannuaire.service-public.fr/:organization',
-  'organisations/:organization'
-);
+import { organizationLink } from './routes';
 
 export default function OrganizationList({ organizations }) {
   if (organizations.length === 0)
@@ -26,7 +21,7 @@ export default function OrganizationList({ organizations }) {
         {organizations.map(({ organization, name }) => (
           <tr key={organization}>
             <td>
-              <Link to={linkOrganization(organization)}>
+              <Link to={organizationLink(organization)}>
                 {name}
               </Link>
             </td>
