@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { organizationLink } from './routes';
 
@@ -33,5 +34,5 @@ export default function OrganizationList({ organizations }) {
 }
 
 OrganizationList.propTypes = {
-  organizations: React.PropTypes.array.isRequired
-}
+  organizations: PropTypes.array.isRequired
+};

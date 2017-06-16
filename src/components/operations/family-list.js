@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { familyLink } from './routes';
 
@@ -33,5 +34,5 @@ export default function FamilyList({ families }) {
 }
 
 FamilyList.propTypes = {
-  families: React.PropTypes.array.isRequired
-}
+  families: PropTypes.array.isRequired
+};
