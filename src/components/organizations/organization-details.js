@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import ReactTooltip from 'react-tooltip';
 import { sparqlConnect } from 'sparql-connect';
 import OrganizationHierarchy from './organization-hierarchy';
