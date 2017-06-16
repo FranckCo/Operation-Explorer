@@ -57,7 +57,7 @@ function OrganizationHierarchy({ organizationHierarchy }) {
           </li>
         ))}
       </ul>
-      // TODO Add the series produced by the producer
+      {/*TODO Add the series produced by the producer*/}
     </div>
   );
 }

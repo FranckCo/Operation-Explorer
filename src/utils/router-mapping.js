@@ -11,7 +11,7 @@ const pointToUnderscore = str => {
   if (str.includes('_'))
     throw new Error(
       'Values embedded in the URL cannot contain underscores, error ' +
-        `when parsing string ${str}`
+      `when parsing string ${str}`
     );
   return str.replace('.', '_');
 };
@@ -29,7 +29,7 @@ const uriTransformer = (transform, Cmpnt) => {
     if (!routeParams.hasOwnProperty(paramName))
       throw new Error(
         `Expected param \`${paramName}\` was not found in route ` +
-          `${props.location.pathName}`
+        `${props.location.pathName}`
       );
 
     return Object.assign({}, props, {
@@ -39,7 +39,7 @@ const uriTransformer = (transform, Cmpnt) => {
       )
     });
   }
-  return function(props) {
+  return function (props) {
     return React.createElement(Cmpnt, transformProps(props));
   };
 };
@@ -76,8 +76,7 @@ export function transform(patternFrom, patternTo) {
   //We add a $ at the end of the RegExp to ensure that we consume the whole
   //string (if we don't, there might be an error with the pattern)
   const fromRegexp = new RegExp(
-    patternFrom.replace(/:[a-zA-Z_$][a-zA-Z0-9_$]*/g, '([\-\.a-zA-Z_$$0-9]+)') +
-      '$'
+    patternFrom.replace(/:[a-zA-Z_$][a-zA-Z0-9_$]*/g, '([-.a-zA-Z_$$0-9]+)') + '$'
   );
 
   //regular expression to check if a string looks like a parameter description
