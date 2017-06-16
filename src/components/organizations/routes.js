@@ -1,21 +1,20 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 import OrganizationExplorer from './organization-explorer';
 import OrganizationDetails from './organization-details';
-import { transform } from '../../utils/router-mapping';
+import { proccessPatterns } from '../../utils/router-mapping';
 
-export const organizationLink = transform(
+export const { link: organizationLink, transform: organizationTransform } = proccessPatterns(
   'http://lannuaire.service-public.fr/:organization',
-  'organisations/:organization'
+  '/organisations/:organization'
 );
 
 export default (
-  <Route path="/organisations">
-    <IndexRoute component={OrganizationExplorer} />
+  <Switch>
+    <Route exact path="/organisations" component={OrganizationExplorer} />
     <Route
-      path=":organization"
-      component={OrganizationDetails}
-      transform="http://lannuaire.service-public.fr/:organization"
+      path="/organisations/:organization"
+      component={organizationTransform(OrganizationDetails)}
     />
-  </Route>
+  </Switch>
 );

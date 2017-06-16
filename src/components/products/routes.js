@@ -1,9 +1,9 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route } from 'react-router-dom';
 import ProductExplorer from './product-explorer';
 
 export default (
   <Route path="/products">
-    <IndexRoute component={ProductExplorer} />
+    <Route exact component={ProductExplorer} />
   </Route>
 );

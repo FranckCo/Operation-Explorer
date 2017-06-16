@@ -1,9 +1,9 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route } from 'react-router-dom';
 import SIMSExplorer from './sims-explorer';
 
 export default (
   <Route path="/sims">
-    <IndexRoute component={SIMSExplorer} />
+    <Route exact component={SIMSExplorer} />
   </Route>
 );

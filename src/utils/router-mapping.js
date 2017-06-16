@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 /*
 React router doesn't support dot (.) in the URL (it won't load the page if we
@@ -18,55 +18,64 @@ const pointToUnderscore = str => {
 //It will be called when extracting props from the URL
 const underscoreToPoint = str => str.replace('_', '.');
 
-const uriTransformer = (transform, Cmpnt) => {
-  const paramNames = transform.match(/:([a-zA-Z_$][a-zA-Z0-9_$]*)/g);
-  if (paramNames === 0) console.warn('weird, no param in pattern');
+/**
+ * Takes a URI pattern and returns a function which builds the URI
+ * 
+ * The returned function takes an object with a key for each parameter in the
+ * pattern and returns the URI by replacing each parameter in the pattern by its
+ * value.
+ */
+function URIBuilder(pattern) {
+  const paramNames = pattern.match(/:([a-zA-Z_$][a-zA-Z0-9_$]*)/g);
+  if (paramNames === 0) console.warn('Weird, no param in pattern');
   //FIXME handle multiple parameters
-  if (paramNames.length > 1) throw new Error('not implemented yet');
+  if (paramNames.length > 1) throw new Error('Not implemented yet');
   const paramName = paramNames[0].slice(1);
-  function transformProps(props) {
-    const { routeParams } = props;
-    if (!routeParams.hasOwnProperty(paramName))
+  return function buildURI(params) {
+    if (!params.hasOwnProperty(paramName))
       throw new Error(
-        `Expected param \`${paramName}\` was not found in route ` +
-        `${props.location.pathName}`
+        `Expected param \`${paramName}\` was not found in ${params}`
       );
 
-    return Object.assign({}, props, {
-      [paramName]: transform.replace(
+    return {
+      [paramName]: pattern.replace(
         ':' + paramName,
-        underscoreToPoint(routeParams[paramName])
+        underscoreToPoint(params[paramName])
       )
-    });
+    }
   }
-  return function (props) {
-    return React.createElement(Cmpnt, transformProps(props));
-  };
+
 };
 
 /**
- * Takes two string patterns and return a function which transforms a string
- * implementing the `from` pattern into a string implementing the `to` pattern.
+ * Takes two string patterns and return an object with two functions:
+ * - `transform` which takes a component and wraps it in a HOC which passes it the URI;
+ * - `link` which builds a link from the URI.
  *
- * A 'pattern' embeds string like ':myParam' to identify parameters in the
+ * A 'pattern' embeds strings like ':myParam' to identify parameters in the
  * pattern.
  *
  * Example:
  * 
- * const peopleTransform(
+ * const { transform,  link } = processPatterns(
  *  'http://myrepo.com/people/:firstname/meaningless/:lastname',
  *  '/someone/:firstname/:lastname'
  *  )
  *
- * peopleTransform('http://myrepo.com/people/john/meaningless/doe')
+ * link('http://myrepo.com/people/john/meaningless/doe')
  * ->
  * '/someone/john/doe'
  * 
+ * extract('http://myrepo.com/people/john/meaningless/doe') ->
+ * {
+ *  firstname: 'john',
+ *  lastname: 'doe
+ * }
+ * 
  * @param  {string} patternFrom
  * @param  {string} patternTo
- * @return {function}
  */
-export function transform(patternFrom, patternTo) {
+export function proccessPatterns(patternFrom, patternTo) {
   //extract param names in pattern from
   //`paramsPatternFromArr` looks like `[':firstname', ':lastname']`
   const paramsPatternFromArr = patternFrom.match(/:[a-zA-Z_$][a-zA-Z0-9_$]*/g);
@@ -88,7 +97,7 @@ export function transform(patternFrom, patternTo) {
   // ['/someone/', ':firstName', '/', ':lastname']
   const segmentsTo = patternTo
     .split(/(:[a-zA-Z_$][a-zA-Z0-9_$]*)/g)
-    //there might some empty strings, if the pattern starts or ends with a
+    //there might be some empty strings, if the pattern starts or ends with a
     //parameter, or if there are two consecutive parameters (but this should not
     //happen since parameters are supposed to be separated at least by a '/').
     .filter(str => str !== '')
@@ -99,7 +108,7 @@ export function transform(patternFrom, patternTo) {
       return str;
     });
 
-  return function transformString(from) {
+  function buildLink(from) {
     // we extract parameters values in `from` string
     // ['john', 'doe']
     let params = fromRegexp.exec(from);
@@ -125,22 +134,17 @@ export function transform(patternFrom, patternTo) {
     });
     return segments.join('');
   };
-}
 
-export function wrapRoute(element) {
-  const { children, ...otherProps } = element.props;
-  if (
-    otherProps.hasOwnProperty('transform') &&
-    otherProps.hasOwnProperty('component')
-  ) {
-    const { transform, component } = otherProps;
-    delete otherProps.transform;
-    const wrappedComponent = uriTransformer(transform, component);
-    otherProps.component = wrappedComponent;
+  const buildURI = URIBuilder(patternFrom)
+
+  function buildTransform(cmpnt) {
+    return function (props) {
+      return React.createElement(cmpnt, { ...props, ...buildURI(props.match.params) })
+    }
   }
-  if (children)
-    otherProps.children = Array.isArray(children)
-      ? children.map(wrapRoute)
-      : wrapRoute(children);
-  return React.createElement(element.type, otherProps);
+
+  return {
+    link: buildLink,
+    transform: buildTransform
+  }
 }
