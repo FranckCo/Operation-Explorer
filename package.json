@@ -1,6 +1,9 @@
 {
   "name": "Operation-Explorer",
-  "version": "0.1.0",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Franck Cotton",
+  "license": "MIT",
   "private": true,
   "devDependencies": {
     "react-scripts": "1.0.7"
