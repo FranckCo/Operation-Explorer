@@ -4,6 +4,10 @@
   "description": "",
   "author": "Franck Cotton",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FranckCo/Operation-Explorer.git"
+  },
   "private": true,
   "devDependencies": {
     "react-scripts": "1.0.7"
