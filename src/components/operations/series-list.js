@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { seriesLink } from './routes';
 
 export default function SeriesList({ series }) {
@@ -33,5 +34,5 @@ export default function SeriesList({ series }) {
 }
 
 SeriesList.propTypes = {
-  series: React.PropTypes.array.isRequired
-}
+  series: PropTypes.array.isRequired
+};

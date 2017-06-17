@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { sparqlConnect } from 'sparql-connect';
 import { organizationLink } from './routes';
 
@@ -57,7 +57,7 @@ function OrganizationHierarchy({ organizationHierarchy }) {
           </li>
         ))}
       </ul>
-      // TODO Add the series produced by the producer
+      {/*TODO Add the series produced by the producer*/}
     </div>
   );
 }

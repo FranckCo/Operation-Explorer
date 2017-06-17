@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { operationLink } from './routes';
 
 export default function OperationList({ operations }) {
@@ -33,5 +34,5 @@ export default function OperationList({ operations }) {
 }
 
 OperationList.propTypes = {
-  operations: React.PropTypes.array.isRequired
+  operations: PropTypes.array.isRequired
 };

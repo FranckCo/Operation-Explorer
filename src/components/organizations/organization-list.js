@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { organizationLink } from './routes';
 
 export default function OrganizationList({ organizations }) {
@@ -10,7 +11,7 @@ export default function OrganizationList({ organizations }) {
       </div>
     )
 
-  return(
+  return (
     <table className="table table-hover">
       <thead>
         <tr>
@@ -33,5 +34,5 @@ export default function OrganizationList({ organizations }) {
 }
 
 OrganizationList.propTypes = {
-  organizations: React.PropTypes.array.isRequired
-}
+  organizations: PropTypes.array.isRequired
+};
