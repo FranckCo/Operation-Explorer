@@ -10,11 +10,13 @@ export const { link: organizationLink, transform: organizationTransform } = proc
 );
 
 export default (
-  <Switch>
-    <Route exact path="/organisations" component={OrganizationExplorer} />
-    <Route
-      path="/organisations/:organization"
-      component={organizationTransform(OrganizationDetails)}
-    />
-  </Switch>
+  <Route path="/organisations">
+    <Switch>
+      <Route exact path="/organisations" component={OrganizationExplorer} />
+      <Route
+        path="/organisations/:organization"
+        component={organizationTransform(OrganizationDetails)}
+      />
+    </Switch>
+  </Route>
 );
