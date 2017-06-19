@@ -1,6 +1,7 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import ProductExplorer from './product-explorer';
+import ProductDetails from './product-details';
 import { proccessPatterns } from '../../utils/router-mapping';
 
 export const { link: productLink, transform: productTransform } = proccessPatterns(
@@ -10,6 +11,12 @@ export const { link: productLink, transform: productTransform } = proccessPatter
 
 export default (
   <Route path="/products">
-    <Route exact component={ProductExplorer} />
+    <Switch>
+      <Route exact path="/products" component={ProductExplorer} />
+      <Route
+        path="/products/:product"
+        component={productTransform(ProductDetails)}
+      />
+    </Switch>
   </Route>
 );
