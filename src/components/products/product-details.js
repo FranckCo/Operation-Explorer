@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { sparqlConnect } from 'sparql-connect';
-import { seriesLink } from '../operations/routes';
+import { operationLink, seriesLink } from '../operations/routes';
 
 /**
   * Builds the query that retrieves the details on a given product.
@@ -11,7 +11,7 @@ const queryBuilder = product => `
   PREFIX prov: <http://www.w3.org/ns/prov#>
   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
   PREFIX insee: <http://rdf.insee.fr/def/base#>
-  SELECT ?name ?series ?seriesName
+  SELECT ?name ?series ?seriesName ?operation ?operationName
   FROM <http://rdf.casd.eu/graphes/produits>
   FROM <http://rdf.insee.fr/graphes/operations>
   WHERE {
@@ -19,6 +19,11 @@ const queryBuilder = product => `
     ?series a insee:StatisticalOperationSeries ; skos:prefLabel ?seriesName .
     FILTER (lang(?name) = "fr")
     FILTER (lang(?seriesName) = "fr")
+    OPTIONAL {
+      <${product}> prov:wasGeneratedBy ?operation .
+      ?operation a insee:StatisticalOperation ; skos:prefLabel ?operationName .
+      FILTER (lang(?operationName) = "fr")
+    }
   }
 `;
 
@@ -28,11 +33,14 @@ const connector = sparqlConnect(queryBuilder, {
   singleResult: true
 });
 
-function ProductDetails({ product, name, series, seriesName }) {
+function ProductDetails({ product, name, series, seriesName, operation, operationName }) {
   return (
     <div>
       <h1>Produit {name} </h1>
       <h2>Issu de la série <Link to={seriesLink(series)}>{seriesName}</Link></h2>
+      {(operation) &&
+        <h3>Issu de l&apos;opération <Link to={operationLink(operation)}>{operationName}</Link></h3>
+      }
     </div>
   );
 }
