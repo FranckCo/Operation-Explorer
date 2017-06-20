@@ -9,24 +9,28 @@ import SeriesExplorer from './series-explorer';
 import SeriesDetails from './series-details';
 import NotFound from '../not-found'
 
-import { proccessPatterns } from '../../utils/router-mapping';
+import { processRoute } from '../../utils/router-mapping';
 
-export const { link: familyLink, transform: familyTransform } = proccessPatterns(
-  'http://id.insee.fr/operations/family/:family',
-  '/operations/family/:family'
-);
+export const { WrappedComponent: FamilyDetailsWrapped, link: familyLink } =
+  processRoute(
+    'http://id.insee.fr/operations/family/:family',
+    '/operations/family/:family',
+    FamilyDetails
+  )
 
+export const { WrappedComponent: SeriesDetailsWrapped, link: seriesLink } =
+  processRoute(
+    'http://id.insee.fr/operations/series/:series',
+    '/operations/series/:series',
+    SeriesDetails
+  );
 
-export const { link: seriesLink, transform: seriesTransform } = proccessPatterns(
-  'http://id.insee.fr/operations/series/:series',
-  '/operations/series/:series'
-);
-
-export const { link: operationLink, transform: operationTransform } = proccessPatterns(
-  'http://id.insee.fr/operations/operation/:operation',
-  '/operations/operation/:operation'
-);
-
+export const { WrappedComponent: OperationDetailsWrapped, link: operationLink } =
+  processRoute(
+    'http://id.insee.fr/operations/operation/:operation',
+    '/operations/operation/:operation',
+    OperationDetails
+  );
 
 export default (
   <Route path="/operations">
@@ -35,16 +39,16 @@ export default (
       <Route path="/operations/families" component={FamilyExplorer} />
       <Route
         path="/operations/family/:family"
-        component={familyTransform(FamilyDetails)}
+        component={FamilyDetailsWrapped}
       />
       <Route exact path="/operations/series" component={SeriesExplorer} />
       <Route
         path="/operations/series/:series"
-        component={seriesTransform(SeriesDetails)}
+        component={SeriesDetailsWrapped}
       />
       <Route
         path="/operations/operation/:operation"
-        component={operationTransform(OperationDetails)}
+        component={OperationDetailsWrapped}
       />
       <Route path="*" component={NotFound} />
     </Switch>

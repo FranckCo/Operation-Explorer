@@ -10,7 +10,9 @@
   },
   "private": true,
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "enzyme": "^2.8.2",
+    "react-scripts": "1.0.7",
+    "react-test-renderer": "^15.6.1"
   },
   "dependencies": {
     "prop-types": "^15.5.10",
