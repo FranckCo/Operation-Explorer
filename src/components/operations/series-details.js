@@ -1,11 +1,32 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
-import { sparqlConnect } from 'sparql-connect';
+import { sparqlConnect, sparqlCombine } from 'sparql-connect';
 import OperationsBySeries from './operations-by-series';
 import ProductsByOperation from '../products/products-by-operation';
 import NotFound from '../not-found'
 
-import { operationTypes, periodicities } from '../lists';
+import operationTypesConnector from '../connectors/operation-types';
+import periodicitiesConnector from '../connectors/periodicities'
+
+const operationTypes_ = {
+  "S": { "en": "Survey", "fr": "Enquête" },
+  "A": { "en": "Administrative data", "fr": "Données administratives" },
+  "C": { "en": "Synthesis", "fr": "Synthèse" },
+  "I": { "en": "Indicators", "fr": "Indicateurs" },
+  "P": { "en": "Panel", "fr": "Panel" },
+  "M": { "en": "Modelization", "fr": "Modélisation" }
+}
+
+const periodicities_ = {
+  "A": { "en": "Annual", "fr": "Annuelle" },
+  "P": { "en": "Aperiodic", "fr": "Apériodique" },
+  "C": { "en": "Continuous", "fr": "En continu" },
+  "M": { "en": "Monthly", "fr": "Annuelle" },
+  "Q": { "en": "Quarterly", "fr": "Trimestrielle" },
+  "S": { "en": "Biannual", "fr": "Semestrielle" },
+  "PA": { "en": "Multiannual", "fr": "Multiannuelle" },
+  "PO": { "en": "Punctual", "fr": "Ponctuelle" }
+}
 
 /**
   * Builds the query that retrieves the details on a given operation series.
@@ -25,13 +46,20 @@ const queryBuilder = series => `
   }
 `;
 
-const connector = sparqlConnect(queryBuilder, {
+const seriesDetailsConnector = sparqlConnect(queryBuilder, {
   queryName: 'seriesDetails',
   params: ['series'],
   singleResult: true
 });
 
-function SeriesDetails({ series, label, abstract, type, casd, periodicity }) {
+const connector = sparqlCombine(
+  operationTypesConnector,
+  periodicitiesConnector,
+  seriesDetailsConnector
+)
+
+function SeriesDetails({ series, label, abstract, type, casd, periodicity,
+  operationTypes, periodicities }) {
   return (
     <div>
       <h1>Série {label}
@@ -41,8 +69,8 @@ function SeriesDetails({ series, label, abstract, type, casd, periodicity }) {
       </h1>
       <ReactTooltip />
       <h2>{abstract}</h2>
-      <p className="label label-pill label-primary">{operationTypes[type.slice(-1)].fr}</p>
-      <p className="label label-pill label-info">{periodicities[periodicity.split("/").pop()].fr}</p>
+      <p className="label label-pill label-primary">{operationTypes_[type.slice(-1)].fr}</p>
+      <p className="label label-pill label-info">{periodicities_[periodicity.split("/").pop()].fr}</p>
       <br />
       <OperationsBySeries series={series} />
       <ProductsByOperation operation={series} />
