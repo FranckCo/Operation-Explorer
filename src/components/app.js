@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { Switch } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import OrganizationRoutes from './organizations/routes';
 import ProductRoutes from './products/routes';
 import OperationRoutes from './operations/routes';
 import SIMSRoutes from './sims/routes';
 import Menu from './menu'
 import Login from './login'
+import NotFound from './not-found'
+
 //TODO handle authentication within an reducer
 import { checkFromStorage } from '../utils/authentication'
 
@@ -40,6 +42,7 @@ export default class App extends Component {
           {ProductRoutes}
           {OrganizationRoutes}
           {SIMSRoutes}
+          <Route path="*" component={NotFound} />
         </Switch>
       </div>
     )

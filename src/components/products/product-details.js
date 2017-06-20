@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { sparqlConnect } from 'sparql-connect';
 import { operationLink, seriesLink } from '../operations/routes';
+import NotFound from '../not-found'
 
 /**
   * Builds the query that retrieves the details on a given product.
@@ -45,4 +46,7 @@ function ProductDetails({ product, name, series, seriesName, operation, operatio
   );
 }
 
-export default connector(ProductDetails);
+export default connector(ProductDetails, {
+  error: ({ product }) => <NotFound
+    message={`The product ${product} was not found.`} />
+});

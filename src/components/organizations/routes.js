@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import OrganizationExplorer from './organization-explorer';
 import OrganizationDetails from './organization-details';
+import NotFound from '../not-found'
 import { proccessPatterns } from '../../utils/router-mapping';
 import { connector as organizationListConnector } from './organization-explorer'
 
@@ -29,12 +30,10 @@ const OrganizationDetailsSmart = organizationListConnector(function (props) {
 })
 
 function UnknownOrganization({ id }) {
-  return (
-    <div>
-      No organization matching the provided id `{id}`
-    </div>
-  )
+  const message = `No organization matching the provided id \`${id}\``
+  return <NotFound message={message} />
 }
+
 export default (
   <Route path="/organisations">
     <Switch>

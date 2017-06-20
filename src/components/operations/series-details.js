@@ -2,6 +2,8 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import { sparqlConnect } from 'sparql-connect';
 import OperationsBySeries from './operations-by-series';
+import NotFound from '../not-found'
+
 import { operationTypes, periodicities } from '../lists';
 
 /**
@@ -40,10 +42,13 @@ function SeriesDetails({ series, label, abstract, type, casd, periodicity }) {
       <h2>{abstract}</h2>
       <p className="label label-pill label-primary">{operationTypes[type.slice(-1)].fr}</p>
       <p className="label label-pill label-info">{periodicities[periodicity.split("/").pop()].fr}</p>
-      <br/>
+      <br />
       <OperationsBySeries series={series} />
     </div>
   );
 }
 
-export default connector(SeriesDetails);
+export default connector(SeriesDetails, {
+  error: ({ series }) => <NotFound
+    message={`The series ${series} were not found.`} />
+});

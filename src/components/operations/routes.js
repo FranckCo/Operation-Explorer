@@ -7,6 +7,8 @@ import OperationExplorer from './operation-explorer';
 import OperationDetails from './operation-details';
 import SeriesExplorer from './series-explorer';
 import SeriesDetails from './series-details';
+import NotFound from '../not-found'
+
 import { proccessPatterns } from '../../utils/router-mapping';
 
 export const { link: familyLink, transform: familyTransform } = proccessPatterns(
@@ -24,6 +26,7 @@ export const { link: operationLink, transform: operationTransform } = proccessPa
   'http://id.insee.fr/operations/operation/:operation',
   '/operations/operation/:operation'
 );
+
 
 export default (
   <Route path="/operations">
@@ -43,6 +46,7 @@ export default (
         path="/operations/operation/:operation"
         component={operationTransform(OperationDetails)}
       />
+      <Route path="*" component={NotFound} />
     </Switch>
   </Route>
 );

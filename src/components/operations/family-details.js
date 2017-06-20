@@ -2,6 +2,7 @@ import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import SeriesByFamily from './series-by-family';
 import OperationsByFamily from './operations-by-family';
+import NotFound from '../not-found'
 
 /**
   * Builds the query that retrieves the details on a given operation family.
@@ -24,7 +25,7 @@ const connector = sparqlConnect(queryBuilder, {
   singleResult: true
 });
 
-function FamilyDetails({family, label , abstract}) {
+function FamilyDetails({ family, label, abstract }) {
   return (
     <div>
       <h1>Famille {label}</h1>
@@ -35,4 +36,7 @@ function FamilyDetails({family, label , abstract}) {
   );
 }
 
-export default connector(FamilyDetails);
+export default connector(FamilyDetails, {
+  error: ({ family }) => <NotFound
+    message={`The family ${family} was not found.`} />
+});

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import { sparqlConnect } from 'sparql-connect';
 import OrganizationHierarchy from './organization-hierarchy';
+import NotFound from '../not-found'
 
 /**
   * Builds the query that retrieves the details on a given organization.
@@ -35,7 +36,7 @@ function OrganizationDetails({ organization, label, seeAlso }) {
         }
       </h1>
       <ReactTooltip />
-      <OrganizationHierarchy organization={organization}/>
+      <OrganizationHierarchy organization={organization} />
     </div>
   );
 }
