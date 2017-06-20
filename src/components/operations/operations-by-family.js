@@ -3,7 +3,7 @@ import { sparqlConnect } from 'sparql-connect';
 import OperationList from './operation-list';
 
 /**
- * Builds the query that retrieves the series on a given family.
+ * Builds the query that retrieves the series of a given family.
  */
 const queryBuilder = family => `
   PREFIX dcterms: <http://purl.org/dc/terms/>

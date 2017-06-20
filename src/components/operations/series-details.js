@@ -2,6 +2,7 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import { sparqlConnect } from 'sparql-connect';
 import OperationsBySeries from './operations-by-series';
+import ProductsByOperation from '../products/products-by-operation';
 import NotFound from '../not-found'
 
 import { operationTypes, periodicities } from '../lists';
@@ -44,6 +45,7 @@ function SeriesDetails({ series, label, abstract, type, casd, periodicity }) {
       <p className="label label-pill label-info">{periodicities[periodicity.split("/").pop()].fr}</p>
       <br />
       <OperationsBySeries series={series} />
+      <ProductsByOperation operation={series} />
     </div>
   );
 }
