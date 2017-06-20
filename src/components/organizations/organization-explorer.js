@@ -15,15 +15,15 @@ const queryBuilder = () => `
   ORDER BY ?organization
 `
 
-const connector = sparqlConnect(queryBuilder, {
+export const connector = sparqlConnect(queryBuilder, {
   queryName: 'organizations'
 })
 
 function OrganizationExplorer({ organizations }) {
 
-  return(
+  return (
     <div>
-      <OrganizationList organizations={organizations}/>
+      <OrganizationList organizations={organizations} />
     </div>
   )
 }
