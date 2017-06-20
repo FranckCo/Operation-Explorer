@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import OrganizationRoutes from './organizations/routes';
 import ProductRoutes from './products/routes';
 import OperationRoutes from './operations/routes';
@@ -42,6 +42,9 @@ export default class App extends Component {
           {ProductRoutes}
           {OrganizationRoutes}
           {SIMSRoutes}
+          <Route exact path="/">
+            <Redirect to="/operations" />
+          </Route>
           <Route path="*" component={NotFound} />
         </Switch>
       </div>
