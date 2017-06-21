@@ -9,14 +9,14 @@ const queryBuilder = operation => `
   PREFIX dcterms: <http://purl.org/dc/terms/>
   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
   PREFIX prov: <http://www.w3.org/ns/prov#>
-  SELECT ?product ?productName
-  FROM <http://rdf.insee.fr/graphes/operations>
+  SELECT ?product ?name
+  FROM <http://rdf.casd.eu/graphes/produits>
   WHERE {
     ?product prov:wasGeneratedBy <${operation}> .
-    ?product dcterms:title ?productName .
-    FILTER (lang(?productName) = "fr")
+    ?product dcterms:title ?name .
+    FILTER (lang(?name) = "fr")
   }
-  ORDER BY ?operation
+  ORDER BY ?product
 `
 
 const connector = sparqlConnect(queryBuilder, {
