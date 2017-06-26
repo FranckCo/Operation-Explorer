@@ -67,5 +67,9 @@ export default {
   familyHoldsNoSerie: [
     'Cette famille ne contient aucune série.',
     'This family does not hold any serie.'
+  ],
+  seeServicePublic: [
+    'Voir sur Service-Public.fr',
+    'More info on Service-Public.fr'
   ]
 }

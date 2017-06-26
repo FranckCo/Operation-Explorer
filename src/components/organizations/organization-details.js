@@ -31,7 +31,7 @@ function OrganizationDetails({ organization, label, seeAlso }) {
       <h1>{D.organization} {label}
         {(seeAlso.length > 0) &&
           <a href={seeAlso}>
-            <img className="dila-logo" data-tip="Voir sur Service-Public.fr" src="/img/marianne.png" />
+            <img className="dila-logo" alt={D.seeServicePublic} data-tip={D.seeServicePublic} src="/img/marianne.png" />
           </a>
         }
       </h1>

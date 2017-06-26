@@ -10,7 +10,7 @@ function Menu({ lang, location }) {
         <div className="container-fluid">
           <div className="navbar-header">
             <Link className="navbar-brand" to="/">
-              <img className="logo" src="/img/gear.png" />
+              <img className="logo" alt="logo" src="/img/gear.png" />
             </Link>
           </div>
           <div className="collapse navbar-collapse">

@@ -12,8 +12,8 @@ export const organizationLink = organizationURI => {
 
 const OrganizationDetailsSmart = organizationListConnector(function (props) {
   const { organizations, match: { params: { organization: orgId } } } = props
-  let candidate;
-  if (candidate = organizations.find(({ organization }) => organization.endsWith(orgId))) {
+  const candidate = organizations.find(({ organization }) => organization.endsWith(orgId))
+  if (candidate) {
     return <OrganizationDetails organization={candidate.organization} />
   }
   return <UnknownOrganization orgId={orgId} />

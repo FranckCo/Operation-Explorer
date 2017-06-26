@@ -76,7 +76,7 @@ function SeriesDetails({ series, label, abstract, type, casd, periodicity,
     <div>
       <h1>{D.serie} {label}
         {(casd === 'true') &&
-          <img className="casd-logo" data-tip={D.availableFromCASD} src="/img/casd.png" />
+          <img className="casd-logo" alt={D.availableFromCASD} data-tip={D.availableFromCASD} src="/img/casd.png" />
         }
       </h1>
       <ReactTooltip />

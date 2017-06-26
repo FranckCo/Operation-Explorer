@@ -5,7 +5,7 @@ import configureStore from '../utils/configure-store';
 //We work with `redux`, so our app will need a reducer
 import { getReducer, setQueryURL } from 'sparql-connect';
 import App from './app';
-import { getLang, setLang } from 'i18n'
+import { getLang } from 'i18n'
 import config from '../config';
 
 setQueryURL(config.queryURL);
