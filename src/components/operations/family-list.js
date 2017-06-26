@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { familyLink } from './routes';
+import D from 'i18n'
 
 export default function FamilyList({ families }) {
   if (families.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
-        La liste des familles est vide
+        {D.emptyFamilyList}
       </div>
     )
 
@@ -15,7 +16,7 @@ export default function FamilyList({ families }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>Famille</th>
+          <th>{D.family}</th>
         </tr>
       </thead>
       <tbody>

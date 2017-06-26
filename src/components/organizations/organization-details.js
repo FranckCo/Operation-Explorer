@@ -2,6 +2,7 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import { sparqlConnect } from 'sparql-connect';
 import OrganizationHierarchy from './organization-hierarchy';
+import D from 'i18n'
 
 /**
   * Builds the query that retrieves the details on a given organization.
@@ -27,7 +28,7 @@ const connector = sparqlConnect(queryBuilder, {
 function OrganizationDetails({ organization, label, seeAlso }) {
   return (
     <div>
-      <h1>Organisation {label}
+      <h1>{D.organization} {label}
         {(seeAlso.length > 0) &&
           <a href={seeAlso}>
             <img className="dila-logo" data-tip="Voir sur Service-Public.fr" src="/img/marianne.png" />

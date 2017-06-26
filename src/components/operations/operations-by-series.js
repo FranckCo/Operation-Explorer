@@ -1,7 +1,7 @@
 import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import OperationList from './operation-list';
-
+import D from 'i18n'
 /**
  * Builds the query that retrieves the series of a given family.
  */
@@ -24,11 +24,11 @@ const connector = sparqlConnect(queryBuilder, {
 
 function OperationsBySeries({ operationsBySeries }) {
   if (operationsBySeries.length === 0) {
-    return <span>Cette série ne contient aucune opération</span>
+    return <span>{D.serieHoldsNoOperation}</span>
   }
   return <OperationList operations={operationsBySeries} />
 }
 
 export default connector(OperationsBySeries, {
-  loading: () => <span>Chargement de la liste des opérations</span>
+  loading: () => <span>{D.loadingOperations}</span>
 })

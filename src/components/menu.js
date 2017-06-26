@@ -1,7 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import D from 'i18n'
+import LangPicker from './lang-picker'
 
-export default function Menu({ location }) {
+function Menu({ lang, location }) {
   return (
     <header>
       <nav className="navbar navbar-default">
@@ -14,19 +16,34 @@ export default function Menu({ location }) {
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
               <li>
-                <Link className={/^\/families/.test(location.pathname) && 'active'} to="/operations/families">Familles</Link>
+                <Link className={/^\/families/.test(location.pathname) && 'active'} to="/operations/families">
+                  {D.families}
+                </Link>
               </li>
               <li>
-                <Link className={/^\/series/.test(location.pathname) && 'active'} to="/operations/series">Séries</Link>
+                <Link className={/^\/series/.test(location.pathname) && 'active'} to="/operations/series">
+                  {D.series}
+                </Link>
               </li>
               <li>
-                <Link className={/^\/operations/.test(location.pathname) && 'active'} to="/operations">Opérations</Link>
+                <Link className={/^\/operations/.test(location.pathname) && 'active'} to="/operations">
+                  {D.operations}
+                </Link>
               </li>
               <li>
-                <Link className={/^\/products/.test(location.pathname) && 'active'} to="/products">Produits</Link>
+                <Link className={/^\/products/.test(location.pathname) && 'active'} to="/products">
+                  {D.products}
+                </Link>
               </li>
               <li>
-                <Link className={/^\/producers/.test(location.pathname) && 'active'} to="/organisations">Producteurs</Link>
+                <Link className={/^\/producers/.test(location.pathname) && 'active'} to="/organisations">
+                  {D.organizations}
+                </Link>
+              </li>
+            </ul>
+            <ul className="nav navbar-nav pull-right">
+              <li>
+                <LangPicker location={location} lang={lang} />
               </li>
             </ul>
           </div>
@@ -35,3 +52,5 @@ export default function Menu({ location }) {
     </header>
   )
 }
+
+export default withRouter(Menu)

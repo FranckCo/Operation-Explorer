@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { sparqlConnect } from 'sparql-connect';
 import { operationLink, seriesLink } from '../operations/routes';
 import NotFound from '../not-found'
+import D from 'i18n'
 
 /**
   * Builds the query that retrieves the details on a given product.
@@ -38,9 +39,9 @@ function ProductDetails({ product, name, series, seriesName, operation, operatio
   return (
     <div>
       <h1>Produit {name} </h1>
-      <h2>Issu de la série <Link to={seriesLink(series)}>{seriesName}</Link></h2>
+      <h2>{D.fromSerie} <Link to={seriesLink(series)}>{seriesName}</Link></h2>
       {(operation) &&
-        <h3>Issu de l&apos;opération <Link to={operationLink(operation)}>{operationName}</Link></h3>
+        <h3>{D.fromOperation} <Link to={operationLink(operation)}>{operationName}</Link></h3>
       }
     </div>
   );

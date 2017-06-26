@@ -31,12 +31,12 @@ export default class App extends Component {
   }
 
   render() {
-    const { location } = this.props
+    const { lang, location } = this.props
     if (this.state.loginStatus === 'PENDING') return <div>Checking credentials...</div>
     if (!this.state.loggedIn) return <Login updateLogin={this.updateLogin} />
     return (
       <div className="container-fluid">
-        <Menu location={location} />
+        <Menu lang={lang} location={location} />
         <Switch>
           {OperationRoutes}
           {ProductRoutes}

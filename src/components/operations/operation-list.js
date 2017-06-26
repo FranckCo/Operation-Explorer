@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { operationLink } from './routes';
+import D from 'i18n'
 
 export default function OperationList({ operations }) {
   if (operations.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
-        La liste des opérations est vide.
+        {D.emptyOperationList}
       </div>
     );
 
@@ -15,7 +16,7 @@ export default function OperationList({ operations }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>Opération</th>
+          <th>{D.operation}</th>
         </tr>
       </thead>
       <tbody>

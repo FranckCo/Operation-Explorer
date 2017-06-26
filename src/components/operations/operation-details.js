@@ -1,7 +1,7 @@
 import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import NotFound from '../not-found'
-
+import D from 'i18n'
 /**
   * Builds the query that retrieves the details on a given operation.
   */
@@ -26,7 +26,7 @@ const connector = sparqlConnect(queryBuilder, {
 function OperationDetails({ label, abstract }) {
   return (
     <div>
-      <h1>Opération {label}</h1>
+      <h1>{D.operation} {label}</h1>
       <h2>{abstract}</h2>
     </div>
   );
@@ -34,5 +34,5 @@ function OperationDetails({ label, abstract }) {
 
 export default connector(OperationDetails, {
   error: ({ operation }) => <NotFound
-    message={`The operation ${operation} was not found.`} />
+    message={D.operationNotFound(operation)} />
 });

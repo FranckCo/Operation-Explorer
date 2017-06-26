@@ -3,6 +3,7 @@ import { sparqlConnect } from 'sparql-connect';
 import SeriesByFamily from './series-by-family';
 import OperationsByFamily from './operations-by-family';
 import NotFound from '../not-found'
+import D from 'i18n'
 
 /**
   * Builds the query that retrieves the details on a given operation family.
@@ -28,7 +29,7 @@ const connector = sparqlConnect(queryBuilder, {
 function FamilyDetails({ family, label, abstract }) {
   return (
     <div>
-      <h1>Famille {label}</h1>
+      <h1>{D.family} {label}</h1>
       <h2>{abstract}</h2>
       <SeriesByFamily family={family} />
       <OperationsByFamily family={family} />

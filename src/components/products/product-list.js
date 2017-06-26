@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { productLink } from './routes';
+import D from 'i18n'
 
 export default function ProductList({ products }) {
   if (products.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
-        La liste des produits est vide
+        {D.emptyProductLit}
       </div>
     )
 
@@ -15,7 +16,7 @@ export default function ProductList({ products }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>Produit</th>
+          <th>{D.product}</th>
         </tr>
       </thead>
       <tbody>

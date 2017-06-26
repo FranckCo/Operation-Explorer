@@ -7,6 +7,7 @@ import NotFound from '../not-found'
 import arrayToObject from '../../utils/array-to-object'
 import operationTypesConnector from '../connectors/operation-types';
 import periodicitiesConnector from '../connectors/periodicities'
+import D from 'i18n'
 
 //HACK waiting for the database to be updated with real information
 //TODO fix this when the database is updated
@@ -73,9 +74,9 @@ function SeriesDetails({ series, label, abstract, type, casd, periodicity,
   const periodicitiesObj = arrayToObject(periodicities, 'periodicity')
   return (
     <div>
-      <h1>Série {label}
+      <h1>{D.serie} {label}
         {(casd === 'true') &&
-          <img className="casd-logo" data-tip="Disponible au CASD" src="/img/casd.png" />
+          <img className="casd-logo" data-tip={D.availableFromCASD} src="/img/casd.png" />
         }
       </h1>
       <ReactTooltip />
@@ -95,5 +96,5 @@ function SeriesDetails({ series, label, abstract, type, casd, periodicity,
 
 export default connector(SeriesDetails, {
   error: ({ series }) => <NotFound
-    message={`The series ${series} were not found.`} />
+    message={D.seriesNotFound(series)} />
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import SeriesList from './series-list';
+import D from 'i18n'
 
 /**
  * Builds the query that retrieves the series on a given family.
@@ -24,11 +25,11 @@ const connector = sparqlConnect(queryBuilder, {
 
 function SeriesByFamily({ seriesByFamily }) {
   if (seriesByFamily.length === 0) {
-    return <span>Cette famille ne contient aucune série</span>
+    return <span>{D.familyHoldsNoSerie}</span>
   }
   return <SeriesList series={seriesByFamily} />
 }
 
 export default connector(SeriesByFamily, {
-  loading: () => <span>Chargement de la liste des séries</span>
+  loading: () => <span>{D.loadingSeries}</span>
 })
