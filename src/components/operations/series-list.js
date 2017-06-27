@@ -8,7 +8,7 @@ export default function SeriesList({ series }) {
   if (series.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
-        La liste des séries est vide
+        {D.emptySeriesList}
       </div>
     );
 

@@ -28,6 +28,10 @@ export default {
   ],
   serie: ['Série', 'Serie'],
   series: ['Séries', 'Series'],
+  emptySeriesList: [
+    'La liste des séries est vide',
+    'Series list is empty.'
+  ],
   fromSerie: [
     'Issu de la série',
     'From serie'
