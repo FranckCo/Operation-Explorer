@@ -31,7 +31,7 @@ function FamilyDetails({ family, label, abstract }) {
   return (
     <div>
       <h1>{D.family} {label}</h1>
-      <h2>{abstract}</h2>
+      <h4>{abstract}</h4>
       <SeriesByFamily family={family} />
       <OperationsByFamily family={family} />
     </div>

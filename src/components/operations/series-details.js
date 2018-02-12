@@ -82,7 +82,7 @@ function SeriesDetails({ series, label, abstract, type, casd, periodicity,
         }
       </h1>
       <ReactTooltip />
-      <h2>{abstract}</h2>
+      <h4>{abstract}</h4>
       <p className="label label-pill label-primary">
         {operationTypesObj[type.slice(-1)].fr}
       </p>

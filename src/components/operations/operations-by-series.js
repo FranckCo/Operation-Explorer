@@ -25,7 +25,7 @@ const connector = sparqlConnect(queryBuilder, {
 
 function OperationsBySeries({ operationsBySeries }) {
   if (operationsBySeries.length === 0) {
-    return <span>{D.serieHoldsNoOperation}</span>
+    return <div>{D.serieHoldsNoOperation}</div>
   }
   return <OperationList operations={operationsBySeries} />
 }

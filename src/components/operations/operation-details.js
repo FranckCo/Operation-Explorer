@@ -28,7 +28,7 @@ function OperationDetails({ label, abstract }) {
   return (
     <div>
       <h1>{D.operation} {label}</h1>
-      <h2>{abstract}</h2>
+      <h4>{abstract}</h4>
     </div>
   );
 }
