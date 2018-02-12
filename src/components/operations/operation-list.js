@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { operationLink } from './routes';
+import display from 'utils/display-results'
 import D from 'i18n'
 
 export default function OperationList({ operations }) {
@@ -16,7 +17,7 @@ export default function OperationList({ operations }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>{D.operation}</th>
+          <th>{D.operationList(display(operations))}</th>
         </tr>
       </thead>
       <tbody>

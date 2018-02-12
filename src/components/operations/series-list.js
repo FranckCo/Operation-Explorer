@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { seriesLink } from './routes';
+import display from 'utils/display-results'
 import D from 'i18n'
 
 export default function SeriesList({ series }) {
@@ -16,7 +17,7 @@ export default function SeriesList({ series }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>{D.Serie}</th>
+          <th>{D.seriesList(display(series))}</th>
         </tr>
       </thead>
       <tbody>

@@ -8,7 +8,7 @@ export default function ProductList({ products }) {
   if (products.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
-        {D.emptyProductLit}
+        {D.emptyProductList}
       </div>
     )
 

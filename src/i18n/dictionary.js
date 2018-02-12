@@ -2,8 +2,14 @@
 //Dynamic strings can be represented with a function which returns a template
 //literal.
 export default {
+  result: ['résultat', 'result'],
+  results: ['résultats', 'results'],
   operation: ['Opération', 'Operation'],
   operations: ['Opérations', 'Operations'],
+  operationList: [
+    results => `Liste des opérations (${results})`,
+    results => `Operations list (${results})`
+  ],
   emptyOperationList: [
     'La liste des opérations est vide.',
     'Operation list is empty'
@@ -22,19 +28,27 @@ export default {
   ],
   family: ['Famille', 'Family'],
   families: ['Familles', 'Families'],
+  familyList: [
+    results => `Liste des familles (${results})`,
+    results => `Family list (${results})`
+  ],
   emptyFamilyList: [
     'La liste des familles est vide.',
     'Family list is empty.'
   ],
-  serie: ['Série', 'Serie'],
+  serie: ['Série', 'Series'],
   series: ['Séries', 'Series'],
+  seriesList: [
+     results => `Liste des séries (${results})`,
+     results => `Series list (${results})`
+   ],
   emptySeriesList: [
     'La liste des séries est vide',
     'Series list is empty.'
   ],
   fromSerie: [
     'Issu de la série',
-    'From serie'
+    'From series'
   ],
   seriesNotFound: [
     series => `Les séries ${series} sont introuvables.`,
