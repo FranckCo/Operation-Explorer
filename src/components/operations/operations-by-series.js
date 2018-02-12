@@ -1,7 +1,7 @@
 import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import OperationList from './operation-list';
-import D from 'i18n'
+import D, { getLang } from 'i18n'
 /**
  * Builds the query that retrieves the series of a given family.
  */
@@ -13,6 +13,7 @@ const queryBuilder = series => `
   WHERE {
     <${series}> dcterms:hasPart ?operation .
     ?operation skos:prefLabel ?label .
+    FILTER(lang(?label) = '${getLang()}')
   }
   ORDER BY ?operation
 `
