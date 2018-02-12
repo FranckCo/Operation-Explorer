@@ -7,6 +7,7 @@ import SIMSRoutes from './sims/routes';
 import Menu from './menu'
 import Login from './login'
 import NotFound from './not-found'
+import config from 'config'
 
 //TODO handle authentication within an reducer
 import { checkFromStorage } from '../utils/authentication'
@@ -27,13 +28,15 @@ export default class App extends Component {
   }
 
   componentWillMount() {
-    checkFromStorage().then(this.updateLogin)
+    if (config.withAuth) checkFromStorage().then(this.updateLogin)
   }
 
   render() {
     const { lang, location } = this.props
-    if (this.state.loginStatus === 'PENDING') return <div>Checking credentials...</div>
-    if (!this.state.loggedIn) return <Login updateLogin={this.updateLogin} />
+    if (config.withAuth && this.state.loginStatus === 'PENDING')
+        return <div>Checking credentials...</div>
+    if (config.withAuth && !this.state.loggedIn)
+        return <Login updateLogin={this.updateLogin} />
     return (
       <div className="container-fluid">
         <Menu lang={lang} location={location} />
