@@ -1,7 +1,7 @@
 import React from 'react'
 import { sparqlConnect } from 'sparql-connect'
 import OperationList from './operation-list'
-import D from 'i18n'
+import D, { getLang } from 'i18n'
 
 const queryBuilder = () => `
   PREFIX insee: <http://rdf.insee.fr/def/base#>
@@ -10,6 +10,7 @@ const queryBuilder = () => `
   FROM <http://rdf.insee.fr/graphes/operations>
   WHERE {
     ?operation a insee:StatisticalOperation ; skos:prefLabel ?label .
+    FILTER(lang(?label) = '${getLang()}')
   }
   ORDER BY ?operation
 `

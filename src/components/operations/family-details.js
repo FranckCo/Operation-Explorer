@@ -3,7 +3,7 @@ import { sparqlConnect } from 'sparql-connect';
 import SeriesByFamily from './series-by-family';
 import OperationsByFamily from './operations-by-family';
 import NotFound from '../not-found'
-import D from 'i18n'
+import D, { getLang } from 'i18n'
 
 /**
   * Builds the query that retrieves the details on a given operation family.
@@ -15,8 +15,8 @@ const queryBuilder = family => `
   FROM <http://rdf.insee.fr/graphes/operations>
   WHERE {
     <${family}> skos:prefLabel ?label ; dcterms:abstract ?abstract .
-    FILTER (lang(?label) = 'fr')
-    FILTER (lang(?abstract) = 'fr')
+    FILTER (lang(?label) = '${getLang()}')
+    FILTER (lang(?abstract) = '${getLang()}')
   }
 `;
 

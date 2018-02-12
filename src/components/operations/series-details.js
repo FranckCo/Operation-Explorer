@@ -7,7 +7,7 @@ import NotFound from '../not-found'
 import arrayToObject from '../../utils/array-to-object'
 import operationTypesConnector from '../connectors/operation-types';
 import periodicitiesConnector from '../connectors/periodicities'
-import D from 'i18n'
+import D, { getLang } from 'i18n'
 
 //HACK waiting for the database to be updated with real information
 //TODO fix this when the database is updated
@@ -43,8 +43,8 @@ const queryBuilder = series => `
   FROM <http://rdf.insee.fr/graphes/operations>
   WHERE {
     <${series}> skos:prefLabel ?label ; dcterms:abstract ?abstract ; insee:casdAvailable ?casd.
-    FILTER (lang(?label) = 'fr')
-    FILTER (lang(?abstract) = 'fr')
+    FILTER (lang(?label) = '${getLang()}')
+    FILTER (lang(?abstract) = '${getLang()}')
     OPTIONAL {<${series}> dcterms:type ?type}
     OPTIONAL {<${series}> dcterms:accrualPeriodicity ?periodicity}
   }

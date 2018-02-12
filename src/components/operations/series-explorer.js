@@ -1,6 +1,7 @@
 import React from 'react'
 import { sparqlConnect, setPrefixes } from 'sparql-connect'
 import SeriesList from './series-list'
+import { getLang } from 'i18n'
 
 setPrefixes({}) // Doesn't seem to work
 /**
@@ -13,6 +14,7 @@ const queryBuilder = () => `
   FROM <http://rdf.insee.fr/graphes/operations>
   WHERE {
     ?series a insee:StatisticalOperationSeries ; skos:prefLabel ?label .
+    FILTER(lang(?label) = '${getLang()}')
   }
   ORDER BY ?series
 `
