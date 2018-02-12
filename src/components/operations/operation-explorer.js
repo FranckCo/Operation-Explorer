@@ -1,7 +1,10 @@
 import React from 'react'
 import { sparqlConnect } from 'sparql-connect'
 import OperationList from './operation-list'
+import { sortArrayByKey } from 'utils/sort-array'
 import D, { getLang } from 'i18n'
+
+const sortArray = sortArrayByKey('label');
 
 const queryBuilder = () => `
   PREFIX insee: <http://rdf.insee.fr/def/base#>
@@ -23,7 +26,7 @@ function OperationExplorer({ operations }) {
 
   return (
     <div>
-      <OperationList operations={operations} />
+      <OperationList operations={sortArray(operations)} />
     </div>
   )
 }

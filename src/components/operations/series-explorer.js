@@ -1,12 +1,16 @@
 import React from 'react'
 import { sparqlConnect, setPrefixes } from 'sparql-connect'
 import SeriesList from './series-list'
+import { sortArrayByKey } from 'utils/sort-array'
 import { getLang } from 'i18n'
 
 setPrefixes({}) // Doesn't seem to work
 /**
  * Builds the query that retrieves the list of families.
  */
+
+const sortArray = sortArrayByKey('label');
+
 const queryBuilder = () => `
   PREFIX insee: <http://rdf.insee.fr/def/base#>
   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -25,7 +29,7 @@ const connector = sparqlConnect(queryBuilder, {
 function SeriesExplorer({ series }) {
   return(
     <div>
-      <SeriesList series={series}/>
+      <SeriesList series={sortArray(series)}/>
     </div>
   )
 }
