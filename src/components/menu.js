@@ -16,7 +16,7 @@ function Menu({ lang, location }) {
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
               <li>
-                <Link className={/^\/families/.test(location.pathname) && 'active'} to="/operations/families">
+                <Link className={/^\/families/.test(location.pathname) && 'active'} to="/operations/familles">
                   {D.families}
                 </Link>
               </li>

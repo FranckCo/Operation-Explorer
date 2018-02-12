@@ -8,26 +8,26 @@ import OperationDetails from './operation-details';
 import SeriesExplorer from './series-explorer';
 import SeriesDetails from './series-details';
 import NotFound from '../not-found'
-
+import config from 'config'
 import { processRoute } from '../../utils/router-mapping';
 
 export const { WrappedComponent: FamilyDetailsWrapped, link: familyLink } =
   processRoute(
-    'http://id.insee.fr/operations/family/:family',
-    '/operations/family/:family',
+    `${config.baseHost}/operations/famille/:family`,
+    '/operations/famille/:family',
     FamilyDetails
   )
 
 export const { WrappedComponent: SeriesDetailsWrapped, link: seriesLink } =
   processRoute(
-    'http://id.insee.fr/operations/series/:series',
-    '/operations/series/:series',
+    `${config.baseHost}/operations/serie/:series`,
+    '/operations/serie/:series',
     SeriesDetails
   );
 
 export const { WrappedComponent: OperationDetailsWrapped, link: operationLink } =
   processRoute(
-    'http://id.insee.fr/operations/operation/:operation',
+    `${config.baseHost}/operations/operation/:operation`,
     '/operations/operation/:operation',
     OperationDetails
   );
@@ -36,14 +36,14 @@ export default (
   <Route path="/operations">
     <Switch>
       <Route exact path="/operations" component={OperationExplorer} />
-      <Route path="/operations/families" component={FamilyExplorer} />
+      <Route path="/operations/familles" component={FamilyExplorer} />
       <Route
-        path="/operations/family/:family"
+        path="/operations/famille/:family"
         component={FamilyDetailsWrapped}
       />
       <Route exact path="/operations/series" component={SeriesExplorer} />
       <Route
-        path="/operations/series/:series"
+        path="/operations/serie/:series"
         component={SeriesDetailsWrapped}
       />
       <Route
