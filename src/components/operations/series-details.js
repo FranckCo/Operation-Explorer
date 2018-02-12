@@ -42,10 +42,12 @@ const queryBuilder = series => `
   SELECT ?label ?abstract ?type ?casd ?periodicity
   FROM <http://rdf.insee.fr/graphes/operations>
   WHERE {
-    <${series}> skos:prefLabel ?label ; dcterms:abstract ?abstract ; insee:casdAvailable ?casd.
-    FILTER (lang(?label) = '${getLang()}')
-    FILTER (lang(?abstract) = '${getLang()}')
-    OPTIONAL {<${series}> dcterms:type ?type}
+    <${series}> skos:prefLabel ?label .
+    FILTER (lang(?label) = '${getLang()}') .
+    OPTIONAL {<${series}> dcterms:abstract ?abstract .
+    FILTER (lang(?abstract) = '${getLang()}')} .
+    OPTIONAL {<${series}> insee:casdAvailable ?casd} .
+    OPTIONAL {<${series}> dcterms:type ?type} .
     OPTIONAL {<${series}> dcterms:accrualPeriodicity ?periodicity}
   }
 `;

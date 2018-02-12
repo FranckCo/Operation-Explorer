@@ -11,9 +11,10 @@ const queryBuilder = operation => `
   SELECT ?label ?abstract
   FROM <http://rdf.insee.fr/graphes/operations>
   WHERE {
-    <${operation}> skos:prefLabel ?label ; dcterms:abstract ?abstract .
+    <${operation}> skos:prefLabel ?label .
     FILTER (lang(?label) = '${getLang()}')
-    FILTER (lang(?abstract) = '${getLang()}')
+    OPTIONAL {<${operation}> dcterms:abstract ?abstract .
+    FILTER (lang(?abstract) = '${getLang()}')}
   }
 `;
 
