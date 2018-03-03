@@ -91,12 +91,12 @@ function SeriesDetails({ series, label, altLabel, abstract, historyNote,
       <p className="abstract">{abstract}</p>
       {historyNote && <p className="historyNote-title">{D.historyNote}</p>}
       <p className="historyNote">{historyNote}</p>
-      <p className="label label-pill label-primary">
-        {type && operationTypesObj[type.slice(-1)].fr}
-      </p>
-      <p className="label label-pill label-info">
-        {periodicity && periodicitiesObj[periodicity.split("/").pop()].fr}
-      </p>
+      {type && <p className="label label-pill label-primary">
+        {operationTypesObj[type][getLang()]}
+      </p>}
+      {periodicity && <p className="label label-pill label-info">
+        {periodicitiesObj[periodicity][getLang()]}
+      </p>}
       <br />
       <OperationsBySeries series={series} />
       <ProductsBySeries series={series} />
