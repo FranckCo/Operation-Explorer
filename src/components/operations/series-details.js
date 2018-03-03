@@ -10,30 +10,6 @@ import periodicitiesConnector from '../connectors/periodicities'
 import D, { getLang } from 'i18n'
 import { tidyString } from 'utils/string-utils'
 
-//HACK waiting for the database to be updated with real information
-//TODO fix this when the database is updated
-const failSafeOperationTypes = [
-  { type: 'S', 'en': 'Survey', fr: 'Enquête' },
-  { type: 'A', 'en': 'Administrative data', fr: 'Données administratives' },
-  { type: 'C', 'en': 'Synthesis', fr: 'Synthèse' },
-  { type: 'I', 'en': 'Indicators', fr: 'Indicateurs' },
-  { type: 'P', 'en': 'Panel', fr: 'Panel' },
-  { type: 'M', 'en': 'Modelization', fr: 'Modélisation' }
-]
-
-const failSafePeriodicities = [
-  { periodicity: 'A', en: 'Annual', fr: 'Annuelle' },
-  { periodicity: 'P', en: 'Aperiodic', fr: 'Apériodique' },
-  { periodicity: 'C', en: 'Continuous', fr: 'En continu' },
-  { periodicity: 'M', en: 'Monthly', fr: 'Annuelle' },
-  { periodicity: 'Q', en: 'Quarterly', fr: 'Trimestrielle' },
-  { periodicity: 'S', en: 'Biannual', fr: 'Semestrielle' },
-  { periodicity: 'PA', en: 'Multiannual', fr: 'Multiannuelle' },
-  { periodicity: 'PO', en: 'Punctual', fr: 'Ponctuelle' },
-  { periodicity: 'T', en: 'Bimonthly', fr: 'Bimestrielle' }
-]
-
-
 /**
   * Builds the query that retrieves the details on a given operation series.
   */
@@ -71,12 +47,6 @@ const connector = sparqlCombine(
 
 function SeriesDetails({ series, label, altLabel, abstract, historyNote,
   type, casd, periodicity, operationTypes, periodicities }) {
-  //TODO remove reference to fail save entries when retrieving this information
-  //from the database is functional
-  operationTypes = operationTypes.length > 0 ?
-    operationTypes : failSafeOperationTypes;
-  periodicities = periodicities.length > 0 ?
-    periodicities : failSafePeriodicities;
 
   const operationTypesObj = arrayToObject(operationTypes, 'type')
   const periodicitiesObj = arrayToObject(periodicities, 'periodicity')
