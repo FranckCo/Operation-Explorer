@@ -105,5 +105,9 @@ export default {
   seeServicePublic: [
     'Voir sur Service-Public.fr',
     'More info on Service-Public.fr'
+  ],
+  historyNote: [
+    'Note historique',
+    'History note'
   ]
 }
