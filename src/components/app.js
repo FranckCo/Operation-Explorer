@@ -46,7 +46,7 @@ export default class App extends Component {
           {OrganizationRoutes}
           {SIMSRoutes}
           <Route exact path="/">
-            <Redirect to="/operations" />
+            <Redirect to="/operations/series" />
           </Route>
           <Route path="*" component={NotFound} />
         </Switch>
