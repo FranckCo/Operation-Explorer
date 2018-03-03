@@ -33,7 +33,7 @@ function OperationDetails({ label, altLabel, valid, abstract }) {
       <h1>{label}</h1>
       <h2>{altLabel}</h2>
       {valid && <p className="validFor">{D.validFor} {valid}</p>}
-      <p className="abstract">{tidyString(abstract)}</p>
+      <span className="abstract">{tidyString(abstract)}</span>
     </div>
   );
 }

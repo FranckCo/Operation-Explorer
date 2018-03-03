@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
 import FamilyExplorer from './family-explorer';
 import FamilyDetails from './family-details';
 import OperationExplorer from './operation-explorer';
