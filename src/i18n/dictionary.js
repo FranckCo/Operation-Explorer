@@ -94,6 +94,9 @@ export default {
     'Cette famille ne contient aucune série',
     'This family does not hold any serie'
   ],
+  seriesHoldsNoProduct: [
+    "Aucun produit n'est issu de cette série",
+    'No products are issued from this series'
   ],
   seeServicePublic: [
     'Voir sur Service-Public.fr',
