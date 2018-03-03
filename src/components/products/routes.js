@@ -1,18 +1,19 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import config from 'config'
 import ProductExplorer from './product-explorer';
 import ProductDetails from './product-details';
 import { URIToURL, transformPropsAndWrapComponent } from '../../utils/router-mapping';
 
 export const productLink = URIToURL(
-  'http://id.insee.fr/produits/indicateur/:product',
-  '/produits/:product'
+  `${config.baseHost}/produits/indicateur/:product`,
+  'produits/indicateur/:product'
 )
 
 const ProductDetailsWrapped = transformPropsAndWrapComponent(
-  '/produits/:product',
+  'produits/indicateur/:product',
   {
-    product: 'http://id.insee.fr/produits/indicateur/:product'
+    product: `${config.baseHost}/produits/indicateur/:product`
   },
   ProductDetails
 )
@@ -23,7 +24,7 @@ export default (
     <Switch>
       <Route exact path="/produits" component={ProductExplorer} />
       <Route
-        path="/produits/:product"
+        path="/produits/indicateur/:product"
         component={ProductDetailsWrapped}
       />
     </Switch>
