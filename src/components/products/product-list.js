@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { productLink } from './routes';
+import display from 'utils/display-results'
 import D from 'i18n'
 
 export default function ProductList({ products }) {
@@ -16,15 +17,15 @@ export default function ProductList({ products }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>{D.product}</th>
+          <th>{D.productList(display(products))}</th>
         </tr>
       </thead>
       <tbody>
-        {products.map(({ product, name }) => (
+        {products.map(({ product, label }) => (
           <tr key={product}>
             <td>
               <Link to={productLink(product)}>
-                {name}
+                {label}
               </Link>
             </td>
           </tr>

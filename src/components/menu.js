@@ -31,7 +31,7 @@ function Menu({ lang, location }) {
                 </Link>
               </li>
               <li>
-                <Link className={/^\/products/.test(location.pathname) && 'active'} to="/products">
+                <Link className={/^\/products/.test(location.pathname) && 'active'} to="/produits">
                   {D.products}
                 </Link>
               </li>

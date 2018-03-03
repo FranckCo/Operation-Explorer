@@ -5,25 +5,25 @@ import ProductDetails from './product-details';
 import { URIToURL, transformPropsAndWrapComponent } from '../../utils/router-mapping';
 
 export const productLink = URIToURL(
-  'http://id.casd.eu/produits/dataset/:product',
-  '/products/:product'
+  'http://id.insee.fr/produits/indicateur/:product',
+  '/produits/:product'
 )
 
 const ProductDetailsWrapped = transformPropsAndWrapComponent(
-  '/products/:product',
+  '/produits/:product',
   {
-    product: 'http://id.casd.eu/produits/dataset/:product'
+    product: 'http://id.insee.fr/produits/indicateur/:product'
   },
   ProductDetails
 )
 
 
 export default (
-  <Route path="/products">
+  <Route path="/produits">
     <Switch>
-      <Route exact path="/products" component={ProductExplorer} />
+      <Route exact path="/produits" component={ProductExplorer} />
       <Route
-        path="/products/:product"
+        path="/produits/:product"
         component={ProductDetailsWrapped}
       />
     </Switch>

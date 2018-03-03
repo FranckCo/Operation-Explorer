@@ -64,6 +64,10 @@ export default {
   ],
   product: ['Produit', 'Product'],
   products: ['Produits', 'Products'],
+  productList: [
+    results => `Liste des indicateurs (${results})`,
+    results => `List of indicators (${results})`
+  ],
   organization: ['Organisation', 'Organization'],
   organizations: ['Organisations', 'Organizations'],
   emptyOrganizationList: [
