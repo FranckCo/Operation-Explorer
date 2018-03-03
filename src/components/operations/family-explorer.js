@@ -1,15 +1,12 @@
 import React from 'react'
 import { sparqlConnect, setPrefixes } from 'sparql-connect'
 import FamilyList from './family-list'
-import { sortArrayByKey } from 'utils/sort-array'
 import { getLang } from 'i18n'
 
 setPrefixes({}) // Doesn't seem to work
 /**
  * Builds the query that retrieves the list of families.
  */
-
-const sortArray = sortArrayByKey('label');
 
 const queryBuilder = () => `
   PREFIX insee: <http://rdf.insee.fr/def/base#>
@@ -29,7 +26,7 @@ const connector = sparqlConnect(queryBuilder, {
 function FamilyExplorer({ families }) {
   return(
     <div>
-      <FamilyList families={sortArray(families)}/>
+      <FamilyList families={families}/>
     </div>
   )
 }

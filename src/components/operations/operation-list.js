@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { operationLink } from './routes';
 import display from 'utils/display-results'
+import { sortArrayByKey } from 'utils/sort-array'
 import D from 'i18n'
+
+const sortArray = sortArrayByKey('label');
 
 export default function OperationList({ operations }) {
   if (operations.length === 0)
@@ -21,7 +24,7 @@ export default function OperationList({ operations }) {
         </tr>
       </thead>
       <tbody>
-        {operations.map(({ operation, label }) => (
+        {sortArray(operations).map(({ operation, label }) => (
           <tr key={operation}>
             <td>
               <Link to={operationLink(operation)}>
