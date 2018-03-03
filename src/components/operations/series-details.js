@@ -81,7 +81,7 @@ function SeriesDetails({ series, label, altLabel, abstract, historyNote,
   const periodicitiesObj = arrayToObject(periodicities, 'periodicity')
   return (
     <div>
-      <h1>{D.serie} {label}
+      <h1>{label}
         {/*(casd === 'true') &&
           <img className="casd-logo" alt={D.availableFromCASD} data-tip={D.availableFromCASD} src="/img/casd.png" />
         */}
@@ -89,7 +89,7 @@ function SeriesDetails({ series, label, altLabel, abstract, historyNote,
       <h2>{altLabel}</h2>
       <ReactTooltip />
       <p className="abstract">{abstract}</p>
-      <p className="historyNote-title">{D.historyNote}</p>
+      {historyNote && <p className="historyNote-title">{D.historyNote}</p>}
       <p className="historyNote">{historyNote}</p>
       <p className="label label-pill label-primary">
         {type && operationTypesObj[type.slice(-1)].fr}
