@@ -70,6 +70,10 @@ export default {
   ],
   organization: ['Organisation', 'Organization'],
   organizations: ['Organisations', 'Organizations'],
+  organizationList: [
+    results => `Liste des organisations (${results})`,
+    results => `List of organizations (${results})`
+  ],
   emptyOrganizationList: [
     'La liste des organisations est vide.',
     'Organization list is empty.'

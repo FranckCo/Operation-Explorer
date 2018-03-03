@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { organizationLink } from './routes';
+import display from 'utils/display-results'
 import D from 'i18n'
 
 export default function OrganizationList({ organizations }) {
@@ -16,15 +17,15 @@ export default function OrganizationList({ organizations }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>{D.organization}</th>
+          <th>{D.organizationList(display(organizations))}</th>
         </tr>
       </thead>
       <tbody>
-        {organizations.map(({ organization, name }) => (
+        {organizations.map(({ organization, label }) => (
           <tr key={organization}>
             <td>
               <Link to={organizationLink(organization)}>
-                {name}
+                {label}
               </Link>
             </td>
           </tr>
