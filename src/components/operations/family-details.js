@@ -3,7 +3,8 @@ import { sparqlConnect } from 'sparql-connect';
 import SeriesByFamily from './series-by-family';
 import OperationsByFamily from './operations-by-family';
 import NotFound from '../not-found'
-import D, { getLang } from 'i18n'
+import { getLang } from 'i18n'
+import { tidyString } from 'utils/string-utils'
 
 /**
   * Builds the query that retrieves the details on a given operation family.
@@ -31,7 +32,7 @@ function FamilyDetails({ family, label, abstract }) {
   return (
     <div>
       <h1>{label}</h1>
-      <h4>{abstract}</h4>
+      <h4>{tidyString(abstract)}</h4>
       <SeriesByFamily family={family} />
       <OperationsByFamily family={family} />
     </div>

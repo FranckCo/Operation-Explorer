@@ -2,6 +2,7 @@ import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import NotFound from '../not-found'
 import D, { getLang } from 'i18n'
+import { tidyString } from 'utils/string-utils'
 /**
   * Builds the query that retrieves the details on a given operation.
   */
@@ -32,7 +33,7 @@ function OperationDetails({ label, altLabel, valid, abstract }) {
       <h1>{label}</h1>
       <h2>{altLabel}</h2>
       {valid && <p className="validFor">{D.validFor} {valid}</p>}
-      <p className="abstract">{abstract}</p>
+      <p className="abstract">{tidyString(abstract)}</p>
     </div>
   );
 }

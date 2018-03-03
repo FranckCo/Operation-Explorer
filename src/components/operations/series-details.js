@@ -8,6 +8,7 @@ import arrayToObject from '../../utils/array-to-object'
 import operationTypesConnector from '../connectors/operation-types';
 import periodicitiesConnector from '../connectors/periodicities'
 import D, { getLang } from 'i18n'
+import { tidyString } from 'utils/string-utils'
 
 //HACK waiting for the database to be updated with real information
 //TODO fix this when the database is updated
@@ -88,9 +89,9 @@ function SeriesDetails({ series, label, altLabel, abstract, historyNote,
       </h1>
       <h2>{altLabel}</h2>
       <ReactTooltip />
-      <p className="abstract">{abstract}</p>
+      <p className="abstract">{tidyString(abstract)}</p>
       {historyNote && <p className="historyNote-title">{D.historyNote}</p>}
-      <p className="historyNote">{historyNote}</p>
+      <p className="historyNote">{tidyString(historyNote)}</p>
       {type && <p className="label label-pill label-primary">
         {operationTypesObj[type][getLang()]}
       </p>}
