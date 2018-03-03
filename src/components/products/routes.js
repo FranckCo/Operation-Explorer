@@ -7,7 +7,7 @@ import { URIToURL, transformPropsAndWrapComponent } from '../../utils/router-map
 
 export const productLink = URIToURL(
   `${config.baseHost}/produits/indicateur/:product`,
-  'produits/indicateur/:product'
+  '/produits/indicateur/:product'
 )
 
 const ProductDetailsWrapped = transformPropsAndWrapComponent(

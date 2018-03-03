@@ -111,7 +111,7 @@ export default {
     'History note'
   ],
   validFor: [
-    'Valid pour',
+    'Valide pour',
     'Valid for'
   ]
 }
