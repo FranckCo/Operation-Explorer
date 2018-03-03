@@ -109,5 +109,9 @@ export default {
   historyNote: [
     'Note historique',
     'History note'
+  ],
+  validFor: [
+    'Valid pour',
+    'Valid for'
   ]
 }
