@@ -9,6 +9,7 @@ import operationTypesConnector from '../connectors/operation-types';
 import periodicitiesConnector from '../connectors/periodicities'
 import D, { getLang } from 'i18n'
 import { tidyString } from 'utils/string-utils'
+import 'css/style.css';
 
 /**
   * Builds the query that retrieves the details on a given operation series.
@@ -59,9 +60,9 @@ function SeriesDetails({ series, label, altLabel, abstract, historyNote,
       </h1>
       <h2>{altLabel}</h2>
       <ReactTooltip />
-      <span className="abstract">{tidyString(abstract)}</span>
+      <div className="abstract">{tidyString(abstract)}</div>
       {historyNote && <p className="historyNote-title">{D.historyNote}</p>}
-      <span className="historyNote">{tidyString(historyNote)}</span>
+      <div className="historyNote">{tidyString(historyNote)}</div>
       {type && <p className="label label-pill label-primary">
         {operationTypesObj[type][getLang()]}
       </p>}

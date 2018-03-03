@@ -32,9 +32,9 @@ function ProductDetails({ product, label, abstract, historyNote }) {
   return (
     <div>
       <h1>{label} </h1>
-      <span className="abstract">{tidyString(abstract)}</span>
+      <div className="abstract">{tidyString(abstract)}</div>
       {historyNote && <p className="historyNote-title">{D.historyNote}</p>}
-      <span className="historyNote">{tidyString(historyNote)}</span>
+      <div className="historyNote">{tidyString(historyNote)}</div>
     </div>
   );
 }
