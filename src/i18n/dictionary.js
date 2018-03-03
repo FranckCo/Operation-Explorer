@@ -11,7 +11,7 @@ export default {
     results => `Operations list (${results})`
   ],
   emptyOperationList: [
-    'La liste des opérations est vide.',
+    'La liste des opérations est vide',
     'Operation list is empty'
   ],
   loadingOperations: [
@@ -33,8 +33,8 @@ export default {
     results => `Family list (${results})`
   ],
   emptyFamilyList: [
-    'La liste des familles est vide.',
-    'Family list is empty.'
+    'La liste des familles est vide',
+    'Family list is empty'
   ],
   serie: ['Série', 'Series'],
   series: ['Séries', 'Series'],
@@ -44,7 +44,7 @@ export default {
    ],
   emptySeriesList: [
     'La liste des séries est vide',
-    'Series list is empty.'
+    'Series list is empty'
   ],
   fromSerie: [
     'Issu de la série',
@@ -55,12 +55,12 @@ export default {
     series => `The series ${series} were not found.`
   ],
   loadingSeries: [
-    'Chargement de la liste des séries.',
-    'Serie list is loading.']
+    'Chargement de la liste des séries',
+    'Serie list is loading']
   ,
   emptyProductList: [
-    'La liste des produits est vide.',
-    'Product list is empty.'
+    'La liste des produits est vide',
+    'Product list is empty'
   ],
   product: ['Produit', 'Product'],
   products: ['Produits', 'Products'],
@@ -75,24 +75,25 @@ export default {
     results => `List of organizations (${results})`
   ],
   emptyOrganizationList: [
-    'La liste des organisations est vide.',
-    'Organization list is empty.'
+    'La liste des organisations est vide',
+    'Organization list is empty'
   ],
   availableFromCASE: [
     'Disponible au CASD',
     'Available from CASD'
   ],
   serieHoldsNoOperation: [
-    'Cette série ne contient aucune opération.',
-    'This serie does not hold any operation.'
+    'Cette série ne contient aucune opération',
+    'This serie does not hold any operation'
   ],
   familyHoldsNoOperation: [
-    'Cette famille ne contient aucune opération.',
-    'This family does not hold any operation.'
+    'Cette famille ne contient aucune opération',
+    'This family does not hold any operation'
   ],
   familyHoldsNoSerie: [
-    'Cette famille ne contient aucune série.',
-    'This family does not hold any serie.'
+    'Cette famille ne contient aucune série',
+    'This family does not hold any serie'
+  ],
   ],
   seeServicePublic: [
     'Voir sur Service-Public.fr',
