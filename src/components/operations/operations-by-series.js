@@ -24,11 +24,11 @@ const connector = sparqlConnect(queryBuilder, {
   params: ['series']
 })
 
-function OperationsBySeries({ operationsBySeries }) {
+function OperationsBySeries({ operationsBySeries, title }) {
   if (operationsBySeries.length === 0) {
     return <div>{D.serieHoldsNoOperation}</div>
   }
-  return <OperationList operations={operationsBySeries} />
+  return <OperationList operations={operationsBySeries} title={title} />
 }
 
 export default connector(OperationsBySeries, {

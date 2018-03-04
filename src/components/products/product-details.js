@@ -37,7 +37,7 @@ function ProductDetails({ product, label, abstract, historyNote }) {
       <div className="abstract">{tidyString(abstract)}</div>
       {historyNote && <p className="rubric-title">{D.historyNote}</p>}
       <div className="historyNote">{tidyString(historyNote)}</div>
-      <SeriesByProduct product={product} />
+      <SeriesByProduct product={product} title={D.seriesByProduct} />
       <LinkedResources resource={product} />
     </div>
   );

@@ -25,11 +25,11 @@ const connector = sparqlConnect(queryBuilder, {
   params: ['series']
 })
 
-function ProductsBySeries({ productsBySeries }) {
+function ProductsBySeries({ productsBySeries, title }) {
   if (productsBySeries.length === 0) {
     return <span>{D.seriesHoldsNoProduct}</span>
   }
-  return <ProductList products={productsBySeries} />
+  return <ProductList products={productsBySeries} title={title} />
 }
 
 export default connector(ProductsBySeries, {

@@ -3,7 +3,7 @@ import { sparqlConnect } from 'sparql-connect';
 import SeriesByFamily from './series-by-family';
 import OperationsByFamily from './operations-by-family';
 import NotFound from '../not-found'
-import { getLang } from 'i18n'
+import D, { getLang } from 'i18n'
 import { tidyString } from 'utils/string-utils'
 
 /**
@@ -33,8 +33,8 @@ function FamilyDetails({ family, label, abstract }) {
     <div>
       <h1>{label}</h1>
       <h4>{tidyString(abstract)}</h4>
-      <SeriesByFamily family={family} />
-      <OperationsByFamily family={family} />
+      <SeriesByFamily family={family} title={D.seriesByFamily}/>
+      <OperationsByFamily family={family} title={D.operationsByFamily}/>
     </div>
   );
 }

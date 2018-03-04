@@ -25,11 +25,11 @@ const connector = sparqlConnect(queryBuilder, {
   params: ['family']
 })
 
-function SeriesByFamily({ seriesByFamily }) {
+function SeriesByFamily({ seriesByFamily, title }) {
   if (seriesByFamily.length === 0) {
     return <div>{D.familyHoldsNoSerie}</div>
   }
-  return <SeriesList series={seriesByFamily} />
+  return <SeriesList series={seriesByFamily} title={title} />
 }
 
 export default connector(SeriesByFamily, {

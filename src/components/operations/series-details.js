@@ -70,8 +70,8 @@ function SeriesDetails({ series, label, altLabel, abstract, historyNote,
       <div className="abstract">{tidyString(abstract)}</div>
       {historyNote && <p className="rubric-title">{D.historyNote}</p>}
       <div className="historyNote">{tidyString(historyNote)}</div>
-      <OperationsBySeries series={series} />
-      <ProductsBySeries series={series} />
+      <OperationsBySeries series={series} title={D.operationsBySeries} />
+      <ProductsBySeries series={series} title={D.productsBySeries} />
       <LinkedResources resource={series} />
     </div>
   );

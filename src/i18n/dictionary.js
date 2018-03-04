@@ -94,6 +94,26 @@ export default {
     'Cette organisation ne possède ni mère, ni fille',
     'This organization has no mother or daughters'
   ],
+  seriesByFamily: [
+    results => `Séries de la famille (${results})`,
+    results => `Family series (${results})`
+  ],
+  seriesByProduct: [
+    results => `Séries impliquant l'indicateur (${results})`,
+    results => `Series involving indicator (${results})`
+  ],
+  operationsByFamily: [
+    results => `Opérations de la famille (${results})`,
+    results => `Family operations (${results})`
+  ],
+  operationsBySeries: [
+    results => `Opérations de la série (${results})`,
+    results => `Series operations (${results})`
+  ],
+  productsBySeries: [
+    results => `Indicateurs de la série (${results})`,
+    results => `Series indicators (${results})`
+  ],
   motherOrganization: [
     'mère',
     'mother'

@@ -25,11 +25,11 @@ const connector = sparqlConnect(queryBuilder, {
   params: ['operation']
 })
 
-function ProductsByOperation({ productsByOperation }) {
+function ProductsByOperation({ productsByOperation, title }) {
   if (productsByOperation.length === 0) {
     return <span>{D.operationHoldsNoProduct}</span>
   }
-  return <ProductList products={productsByOperation} />
+  return <ProductList products={productsByOperation} title={title} />
 }
 
 export default connector(ProductsByOperation, {
