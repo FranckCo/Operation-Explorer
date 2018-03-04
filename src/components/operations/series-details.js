@@ -3,6 +3,7 @@ import ReactTooltip from 'react-tooltip';
 import { sparqlConnect, sparqlCombine } from 'sparql-connect';
 import OperationsBySeries from './operations-by-series';
 import ProductsBySeries from '../products/products-by-series';
+import LinkedResources from '../shared/link-explorer'
 import NotFound from '../not-found'
 import arrayToObject from '../../utils/array-to-object'
 import operationTypesConnector from '../connectors/operation-types';
@@ -71,6 +72,7 @@ function SeriesDetails({ series, label, altLabel, abstract, historyNote,
       <div className="historyNote">{tidyString(historyNote)}</div>
       <OperationsBySeries series={series} />
       <ProductsBySeries series={series} />
+      <LinkedResources resource={series} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import SeriesByProduct from '../operations/series-by-product';
+import LinkedResources from '../shared/link-explorer'
 import NotFound from '../not-found'
 import { tidyString } from 'utils/string-utils'
 import D, { getLang} from 'i18n'
@@ -37,6 +38,7 @@ function ProductDetails({ product, label, abstract, historyNote }) {
       {historyNote && <p className="rubric-title">{D.historyNote}</p>}
       <div className="historyNote">{tidyString(historyNote)}</div>
       <SeriesByProduct product={product} />
+      <LinkedResources resource={product} />
     </div>
   );
 }

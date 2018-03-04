@@ -137,5 +137,29 @@ export default {
   validFor: [
     'Valide pour',
     'Valid for'
-  ]
+  ],
+  seriesIsReplacedList: [
+    results => `Liste des séries remplacées (${results})`,
+    results => `Replaced series list (${results})`
+  ],
+  replacesSeriesList: [
+    results => `Série remplacée par (${results})`,
+    results => `Series replaced by (${results})`
+  ],
+  seeAlsoSeriesList: [
+    results => `Liste des séries liées (${results})`,
+    results => `List of series linked (${results})`
+  ],
+  indicatorIsReplacedList: [
+    results => `Liste des indicateurs remplacés (${results})`,
+    results => `Replaced indicator list (${results})`
+  ],
+  replacesIndicatorList: [
+    results => `Indicateur remplacé par (${results})`,
+    results => `Indicator replaced by (${results})`
+  ],
+  seeAlsoIndicatorList: [
+    results => `Liste des indicateurs liées (${results})`,
+    results => `List of indicators linked (${results})`
+  ],
 }
