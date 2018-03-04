@@ -130,8 +130,10 @@ img.dila-logo {
   background-color: darkslateblue;
 }
 
-.table>thead>tr>th:first-child {
-  border: ridge 2px #e7e7e7;
+.table > thead:first-child > tr:first-child > td,
+.table > thead:first-child > tr:first-child > th {
+	border: ridge 2px #e7e7e7;
+	border-top: ridge 2px #e7e7e7;
 }
 
 .rubric-title {
