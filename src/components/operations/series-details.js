@@ -59,17 +59,16 @@ function SeriesDetails({ series, label, altLabel, abstract, historyNote,
         */}
       </h1>
       <h2>{altLabel}</h2>
-      <ReactTooltip />
-      <div className="abstract">{tidyString(abstract)}</div>
-      {historyNote && <p className="rubric-title">{D.historyNote}</p>}
-      <div className="historyNote">{tidyString(historyNote)}</div>
       {type && <p className="label label-pill label-primary">
         {operationTypesObj[type][getLang()]}
       </p>}
       {periodicity && <p className="label label-pill label-info">
         {periodicitiesObj[periodicity][getLang()]}
       </p>}
-      <br />
+      <ReactTooltip />
+      <div className="abstract">{tidyString(abstract)}</div>
+      {historyNote && <p className="rubric-title">{D.historyNote}</p>}
+      <div className="historyNote">{tidyString(historyNote)}</div>
       <OperationsBySeries series={series} />
       <ProductsBySeries series={series} />
     </div>
