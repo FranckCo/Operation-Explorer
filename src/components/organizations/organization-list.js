@@ -17,7 +17,7 @@ export default function OrganizationList({ organizations }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>{D.organizationList(display(organizationFiltered))}</th>
+          <th className="rubric-title">{D.organizationList(display(organizationFiltered))}</th>
         </tr>
       </thead>
       <tbody>

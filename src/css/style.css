@@ -130,12 +130,22 @@ img.dila-logo {
   background-color: darkslateblue;
 }
 
-.abstract {
-  background-color: #ffffe0;
+.table>thead>tr>th:first-child {
+  border: ridge 2px #e7e7e7;
 }
 
-.historyNote-title {
+.rubric-title {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 0.2%;
+  font-size: 150%;
   font-weight: bold;
+  border: ridge 2px #e7e7e7;
+  display: inline-block;
+}
+
+.abstract {
+  background-color: #ffffe0;
 }
 
 .historyNote {

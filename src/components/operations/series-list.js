@@ -20,7 +20,7 @@ export default function SeriesList({ series }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>{D.seriesList(display(series))}</th>
+          <th className="rubric-title">{D.seriesList(display(series))}</th>
         </tr>
       </thead>
       <tbody>

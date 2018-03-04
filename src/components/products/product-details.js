@@ -34,7 +34,7 @@ function ProductDetails({ product, label, abstract, historyNote }) {
     <div>
       <h1>{label} </h1>
       <div className="abstract">{tidyString(abstract)}</div>
-      {historyNote && <p className="historyNote-title">{D.historyNote}</p>}
+      {historyNote && <p className="rubric-title">{D.historyNote}</p>}
       <div className="historyNote">{tidyString(historyNote)}</div>
       <SeriesByProduct product={product} />
     </div>

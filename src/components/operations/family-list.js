@@ -20,7 +20,7 @@ export default function FamilyList({ families }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>{D.familyList(display(families))}</th>
+          <th className="rubric-title">{D.familyList(display(families))}</th>
         </tr>
       </thead>
       <tbody>

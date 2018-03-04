@@ -39,7 +39,7 @@ function OrganizationHierarchy({ organizationHierarchy }) {
   let daughters = organizationHierarchy.filter((org) => (org.daughter.length > 0));
   return (
     <div>
-      <h2>{getTitle(mothers, D.motherOrganization)}</h2>
+      <div className="rubric-title">{getTitle(mothers, D.motherOrganization)}</div>
       <ul>
         {mothers.map(({ mother, name, type }) => (
           <li key={mother}>
@@ -48,7 +48,7 @@ function OrganizationHierarchy({ organizationHierarchy }) {
           </li>
         ))}
       </ul>
-      <h2>{getTitle(daughters, D.daughterOrganization)}</h2>
+      <div className="rubric-title">{getTitle(daughters, D.daughterOrganization)}</div>
       <ul>
         {daughters.map(({ daughter, name, type }) => (
           <li key={daughter}>

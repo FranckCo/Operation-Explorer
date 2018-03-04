@@ -61,7 +61,7 @@ function SeriesDetails({ series, label, altLabel, abstract, historyNote,
       <h2>{altLabel}</h2>
       <ReactTooltip />
       <div className="abstract">{tidyString(abstract)}</div>
-      {historyNote && <p className="historyNote-title">{D.historyNote}</p>}
+      {historyNote && <p className="rubric-title">{D.historyNote}</p>}
       <div className="historyNote">{tidyString(historyNote)}</div>
       {type && <p className="label label-pill label-primary">
         {operationTypesObj[type][getLang()]}

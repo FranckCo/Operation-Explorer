@@ -20,7 +20,7 @@ export default function OperationList({ operations }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>{D.operationList(display(operations))}</th>
+          <th className="rubric-title">{D.operationList(display(operations))}</th>
         </tr>
       </thead>
       <tbody>

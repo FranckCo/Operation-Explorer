@@ -17,7 +17,7 @@ export default function ProductList({ products }) {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>{D.productList(display(products))}</th>
+          <th className="rubric-title">{D.productList(display(products))}</th>
         </tr>
       </thead>
       <tbody>
