@@ -28,7 +28,7 @@ const connector = sparqlConnect(queryBuilder, {
 function OrganizationDetails({ organization, label, seeAlso }) {
   return (
     <div>
-      <h1>{D.organization} {label}
+      <h1>{label}
         {(seeAlso.length > 0) &&
           <a href={seeAlso}>
             <img className="dila-logo" alt={D.seeServicePublic} data-tip={D.seeServicePublic} src="/img/marianne.png" />

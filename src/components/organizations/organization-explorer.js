@@ -13,8 +13,9 @@ const queryBuilder = () => `
   SELECT ?organization ?label
   FROM <http://rdf.insee.fr/graphes/organisations>
   WHERE {
-  	?organization a org:Organization ; skos:prefLabel ?label .
-    FILTER (lang(?label) = '${getLang()}')
+  	?organization a org:Organization ;
+    OPTIONAL {?organization skos:prefLabel ?label .
+    FILTER (lang(?label) = '${getLang()}')}
   }
   ORDER BY ?organization
 `

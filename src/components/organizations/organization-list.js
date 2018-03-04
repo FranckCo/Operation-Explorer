@@ -12,16 +12,16 @@ export default function OrganizationList({ organizations }) {
         {D.emptyOrganizationList}
       </div>
     )
-
+  const organizationFiltered = organizations.filter(o => o.label);
   return (
     <table className="table table-hover">
       <thead>
         <tr>
-          <th>{D.organizationList(display(organizations))}</th>
+          <th>{D.organizationList(display(organizationFiltered))}</th>
         </tr>
       </thead>
       <tbody>
-        {organizations.map(({ organization, label }) => (
+        {organizationFiltered.map(({ organization, label }) => (
           <tr key={organization}>
             <td>
               <Link to={organizationLink(organization)}>

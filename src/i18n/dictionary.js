@@ -78,6 +78,30 @@ export default {
     'La liste des organisations est vide',
     'Organization list is empty'
   ],
+  isolatedOrganization: [
+    'Cette organisation ne possède ni mère, ni fille',
+    'This organization has no mother or daughters'
+  ],
+  motherOrganization: [
+    'mère',
+    'mother'
+  ],
+  daughterOrganization: [
+    'fille',
+    'daughter'
+  ],
+  noOrganization: [
+    type => `Aucune organisation ${type}`,
+    type => `No ${type} organization`,
+  ],
+  oneOrganization: [
+    type => `Organisation ${type}`,
+    type => `${type} organization`
+  ],
+  multipleOrganizations: [
+    type => `Organisations ${type}s`,
+    type => `${type} organizations`
+  ],
   availableFromCASE: [
     'Disponible au CASD',
     'Available from CASD'

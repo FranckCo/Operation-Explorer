@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { sparqlConnect } from 'sparql-connect';
 import { organizationLink } from './routes';
+import { capitalizeFirstLetter } from 'utils/string-utils'
+import D from 'i18n'
 
 /**
   * Builds the query that retrieves the hierarchy of a given organization.
@@ -30,16 +32,14 @@ const connector = sparqlConnect(queryBuilder, {
 });
 
 function OrganizationHierarchy({ organizationHierarchy }) {
-  console.log(organizationHierarchy);
   if (organizationHierarchy.length === 0) {
-    return <span>Cette organisation ne possède ni mère, ni fille</span>
+    return <span>{D.isolatedOrganization}</span>
   }
-  var mothers = organizationHierarchy.filter((org) => (org.mother.length > 0));
-  var daughters = organizationHierarchy.filter((org) => (org.daughter.length > 0));
-  console.log(mothers);
+  let mothers = organizationHierarchy.filter((org) => (org.mother.length > 0));
+  let daughters = organizationHierarchy.filter((org) => (org.daughter.length > 0));
   return (
     <div>
-      <h2>{getTitle(mothers, 'mère')}</h2>
+      <h2>{getTitle(mothers, D.motherOrganization)}</h2>
       <ul>
         {mothers.map(({ mother, name, type }) => (
           <li key={mother}>
@@ -48,7 +48,7 @@ function OrganizationHierarchy({ organizationHierarchy }) {
           </li>
         ))}
       </ul>
-      <h2>{getTitle(daughters, 'fille')}</h2>
+      <h2>{getTitle(daughters, D.daughterOrganization)}</h2>
       <ul>
         {daughters.map(({ daughter, name, type }) => (
           <li key={daughter}>
@@ -66,9 +66,11 @@ function OrganizationHierarchy({ organizationHierarchy }) {
 * Utility function: gets the correct title depending on the type and number of organizations
 */
 function getTitle(orgs, type) {
-  if (orgs.length === 0) return ('Aucune organisation ' + type);
-  if (orgs.length === 1) return ('Organisation ' + type);
-  return ('Organisations ' + type + 's');
+  let title;
+  if (orgs.length === 0) title = D.noOrganization(type);
+  else if (orgs.length === 1) title = D.oneOrganization(type);
+  else title = D.multipleOrganizations(type);
+  return capitalizeFirstLetter(title);
 }
 
 export default connector(OrganizationHierarchy);
