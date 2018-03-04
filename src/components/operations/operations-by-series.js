@@ -1,6 +1,7 @@
 import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import OperationList from './operation-list';
+import Spinner from 'components/shared/spinner'
 import D, { getLang } from 'i18n'
 /**
  * Builds the query that retrieves the series of a given family.
@@ -31,5 +32,5 @@ function OperationsBySeries({ operationsBySeries }) {
 }
 
 export default connector(OperationsBySeries, {
-  loading: () => <span>{D.loadingOperations}</span>
+  loading: () => <Spinner text={D.loadingOperations}/>
 })

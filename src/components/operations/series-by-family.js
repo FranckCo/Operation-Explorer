@@ -1,6 +1,7 @@
 import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import SeriesList from './series-list';
+import Spinner from 'components/shared/spinner'
 import D, { getLang } from 'i18n'
 
 /**
@@ -32,5 +33,5 @@ function SeriesByFamily({ seriesByFamily }) {
 }
 
 export default connector(SeriesByFamily, {
-  loading: () => <span>{D.loadingSeries}</span>
+  loading: () => <Spinner text={D.loadingSeries}/>
 })

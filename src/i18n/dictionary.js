@@ -36,6 +36,10 @@ export default {
     'La liste des familles est vide',
     'Family list is empty'
   ],
+  loadingFamillies: [
+    'Chargement de la liste des familles',
+    'Family list is loading']
+  ,
   serie: ['Série', 'Series'],
   series: ['Séries', 'Series'],
   seriesList: [
@@ -68,6 +72,10 @@ export default {
     results => `Liste des indicateurs (${results})`,
     results => `List of indicators (${results})`
   ],
+  loadingProducts: [
+    'Chargement de la liste des produits',
+    'Product list is loading']
+  ,
   organization: ['Organisation', 'Organization'],
   organizations: ['Organisations', 'Organizations'],
   organizationList: [
@@ -78,6 +86,10 @@ export default {
     'La liste des organisations est vide',
     'Organization list is empty'
   ],
+  loadingOrganizations: [
+    'Chargement de la liste des organisations',
+    'Organisation list is loading']
+  ,
   isolatedOrganization: [
     'Cette organisation ne possède ni mère, ni fille',
     'This organization has no mother or daughters'
@@ -162,4 +174,5 @@ export default {
     results => `Liste des indicateurs liées (${results})`,
     results => `List of indicators linked (${results})`
   ],
+
 }

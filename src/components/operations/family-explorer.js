@@ -1,7 +1,8 @@
 import React from 'react'
 import { sparqlConnect, setPrefixes } from 'sparql-connect'
 import FamilyList from './family-list'
-import { getLang } from 'i18n'
+import Spinner from 'components/shared/spinner'
+import D, { getLang } from 'i18n'
 
 setPrefixes({}) // Doesn't seem to work
 /**
@@ -32,5 +33,5 @@ function FamilyExplorer({ families }) {
 }
 
 export default connector(FamilyExplorer, {
-  loading: () => <span>Chargement de la liste des familles</span>
+  loading: () => <Spinner text={D.loadingFamillies}/>
 })

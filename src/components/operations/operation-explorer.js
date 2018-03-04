@@ -1,6 +1,7 @@
 import React from 'react'
 import { sparqlConnect } from 'sparql-connect'
 import OperationList from './operation-list'
+import Spinner from 'components/shared/spinner'
 import D, { getLang } from 'i18n'
 
 const queryBuilder = () => `
@@ -29,5 +30,5 @@ function OperationExplorer({ operations }) {
 }
 
 export default connector(OperationExplorer, {
-  loading: () => <span>{D.loadingOperations}</span>
+  loading: () => <Spinner text={D.loadingOperations}/>
 })

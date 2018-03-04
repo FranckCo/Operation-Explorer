@@ -1,6 +1,7 @@
 import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import OperationList from './operation-list';
+import Spinner from 'components/shared/spinner'
 import D, { getLang } from 'i18n';
 
 /**
@@ -33,5 +34,5 @@ function OperationsByFamily({ operationsByFamily }) {
 }
 
 export default connector(OperationsByFamily, {
-  loading: () => <span>Chargement de la liste des opérations</span>
+  loading: () => <Spinner text={D.loadingOperations}/>
 })

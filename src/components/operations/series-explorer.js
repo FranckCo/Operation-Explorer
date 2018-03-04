@@ -1,7 +1,8 @@
 import React from 'react'
 import { sparqlConnect, setPrefixes } from 'sparql-connect'
 import SeriesList from './series-list'
-import { getLang } from 'i18n'
+import Spinner from 'components/shared/spinner'
+import D, { getLang } from 'i18n'
 
 setPrefixes({}) // Doesn't seem to work
 /**
@@ -32,5 +33,5 @@ function SeriesExplorer({ series }) {
 }
 
 export default connector(SeriesExplorer, {
-  loading: () => <span>Chargement de la liste des séries</span>
+  loading: () => <Spinner text={D.loadingSeries}/>
 })

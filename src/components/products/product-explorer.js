@@ -1,8 +1,9 @@
 import React from 'react'
 import { sparqlConnect } from 'sparql-connect'
 import ProductList from './product-list'
+import Spinner from 'components/shared/spinner'
 import { sortArrayByKey } from 'utils/sort-array'
-import { getLang } from 'i18n'
+import D, { getLang } from 'i18n'
 
 const sortArray = sortArrayByKey('label');
 
@@ -32,5 +33,5 @@ function ProductExplorer( {products} ) {
 }
 
 export default connector(ProductExplorer, {
-  loading: () => <span>Chargement de la liste des produits</span>
+  loading: () => <Spinner text={D.loadingProducts} />
 })

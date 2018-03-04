@@ -1,7 +1,8 @@
 import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import SeriesList from './series-list';
-import { getLang } from 'i18n'
+import Spinner from 'components/shared/spinner'
+import D, { getLang } from 'i18n'
 
 /**
  * Builds the query that retrieves the products issued of a given series.
@@ -33,5 +34,5 @@ function SeriesByProducts({ seriesByProducts }) {
 }
 
 export default connector(SeriesByProducts, {
-  loading: () => <span>Chargement de la liste des séries</span>
+  loading: () => <Spinner text={D.loadingSeries}/>
 })

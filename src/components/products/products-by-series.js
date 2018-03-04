@@ -1,6 +1,7 @@
 import React from 'react';
 import { sparqlConnect } from 'sparql-connect';
 import ProductList from './product-list';
+import Spinner from 'components/shared/spinner'
 import D, { getLang } from 'i18n'
 
 /**
@@ -32,5 +33,5 @@ function ProductsBySeries({ productsBySeries }) {
 }
 
 export default connector(ProductsBySeries, {
-  loading: () => <span>Chargement de la liste des produits</span>
+  loading: () => <Spinner text={D.loadingProducts} />
 })

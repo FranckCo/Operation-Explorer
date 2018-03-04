@@ -1,8 +1,9 @@
 import React from 'react'
 import { sparqlConnect } from 'sparql-connect'
 import OrganizationList from './organization-list'
+import Spinner from 'components/shared/spinner'
 import { sortArrayByKey } from 'utils/sort-array'
-import { getLang } from 'i18n'
+import D, { getLang } from 'i18n'
 
 const sortArray = sortArrayByKey('label');
 
@@ -34,5 +35,5 @@ function OrganizationExplorer({ organizations }) {
 }
 
 export default connector(OrganizationExplorer, {
-  loading: () => <span>Chargement de la liste des organisations</span>
+  loading: () => <Spinner text={D.loadingOrganizations} />
 })
