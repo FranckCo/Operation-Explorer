@@ -143,6 +143,7 @@ img.dila-logo {
   font-size: 150%;
   font-weight: bold;
   border: ridge 2px #e7e7e7;
+  border-radius: 10px;
   display: inline-block;
 }
 
