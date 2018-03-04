@@ -5,7 +5,7 @@ import { organizationLink } from './routes';
 import display from 'utils/display-results'
 import D from 'i18n'
 
-export default function OrganizationList({ organizations }) {
+export default function OrganizationList({ organizations, title }) {
   if (organizations.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
@@ -13,11 +13,12 @@ export default function OrganizationList({ organizations }) {
       </div>
     )
   const organizationFiltered = organizations.filter(o => o.label);
+  title = title || D.organizationList;
   return (
     <table className="table table-hover">
       <thead>
         <tr>
-          <th className="rubric-title">{D.organizationList(display(organizationFiltered))}</th>
+          <th className="rubric-title">{title(display(organizationFiltered))}</th>
         </tr>
       </thead>
       <tbody>
@@ -36,5 +37,6 @@ export default function OrganizationList({ organizations }) {
 }
 
 OrganizationList.propTypes = {
-  organizations: PropTypes.array.isRequired
+  organizations: PropTypes.array.isRequired,
+  title: PropTypes.func,
 };

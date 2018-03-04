@@ -8,19 +8,19 @@ import D from 'i18n'
 
 const sortArray = sortArrayByKey('label');
 
-export default function FamilyList({ families }) {
+export default function FamilyList({ families, title }) {
   if (families.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
         {D.emptyFamilyList}
       </div>
     )
-
+  title = title || D.familyList;
   return (
     <table className="table table-hover">
       <thead>
         <tr>
-          <th className="rubric-title">{D.familyList(display(families))}</th>
+          <th className="rubric-title">{title(display(families))}</th>
         </tr>
       </thead>
       <tbody>
@@ -39,5 +39,6 @@ export default function FamilyList({ families }) {
 }
 
 FamilyList.propTypes = {
-  families: PropTypes.array.isRequired
+  families: PropTypes.array.isRequired,
+  title: PropTypes.func,
 };

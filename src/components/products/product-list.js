@@ -5,19 +5,19 @@ import { productLink } from './routes';
 import display from 'utils/display-results'
 import D from 'i18n'
 
-export default function ProductList({ products }) {
+export default function ProductList({ products, title }) {
   if (products.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
         {D.emptyProductList}
       </div>
     )
-
+  title = title || D.productList;
   return (
     <table className="table table-hover">
       <thead>
         <tr>
-          <th className="rubric-title">{D.productList(display(products))}</th>
+          <th className="rubric-title">{title(display(products))}</th>
         </tr>
       </thead>
       <tbody>
@@ -36,5 +36,6 @@ export default function ProductList({ products }) {
 }
 
 ProductList.propTypes = {
-  products: PropTypes.array.isRequired
+  products: PropTypes.array.isRequired,
+  title: PropTypes.func,
 };

@@ -8,19 +8,19 @@ import D from 'i18n'
 
 const sortArray = sortArrayByKey('label');
 
-export default function OperationList({ operations }) {
+export default function OperationList({ operations, title }) {
   if (operations.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
         {D.emptyOperationList}
       </div>
     );
-
+  title = title || D.operationList;
   return (
     <table className="table table-hover">
       <thead>
         <tr>
-          <th className="rubric-title">{D.operationList(display(operations))}</th>
+          <th className="rubric-title">{title(display(operations))}</th>
         </tr>
       </thead>
       <tbody>
@@ -39,5 +39,6 @@ export default function OperationList({ operations }) {
 }
 
 OperationList.propTypes = {
-  operations: PropTypes.array.isRequired
+  operations: PropTypes.array.isRequired,
+  title: PropTypes.func,
 };

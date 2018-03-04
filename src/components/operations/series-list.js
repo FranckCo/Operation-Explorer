@@ -8,19 +8,19 @@ import D from 'i18n'
 
 const sortArray = sortArrayByKey('label');
 
-export default function SeriesList({ series }) {
+export default function SeriesList({ series, title }) {
   if (series.length === 0)
     return (
       <div className="alert alert-warning" role="alert">
         {D.emptySeriesList}
       </div>
     );
-
+  title = title || D.seriesList;
   return (
     <table className="table table-hover">
       <thead>
         <tr>
-          <th className="rubric-title">{D.seriesList(display(series))}</th>
+          <th className="rubric-title">{title(display(series))}</th>
         </tr>
       </thead>
       <tbody>
@@ -39,5 +39,6 @@ export default function SeriesList({ series }) {
 }
 
 SeriesList.propTypes = {
-  series: PropTypes.array.isRequired
+  series: PropTypes.array.isRequired,
+  title: PropTypes.func,
 };
