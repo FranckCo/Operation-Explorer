@@ -194,5 +194,12 @@ export default {
     results => `Liste des indicateurs liées (${results})`,
     results => `List of indicators linked (${results})`
   ],
-
+  titleCreator: [
+    results => `Propriétaire (${results})`,
+    results => `Owner (${results})`
+  ],
+  titleContributor: [
+    results => `Contributeur (${results})`,
+    results => `Contributor (${results})`
+  ],
 }
