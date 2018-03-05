@@ -191,7 +191,7 @@ export default {
     results => `Indicator replaced by (${results})`
   ],
   seeAlsoIndicatorList: [
-    results => `Liste des indicateurs liées (${results})`,
+    results => `Liste des indicateurs liés (${results})`,
     results => `List of indicators linked (${results})`
   ],
   titleCreator: [
