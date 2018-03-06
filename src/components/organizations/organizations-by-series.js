@@ -38,10 +38,16 @@ function OrganizationsBySeries({ organizationsBySeries, titleCreator, titleContr
   if (organizationsBySeries.length === 0) {
     return <span />;
   }
+  const orgaCreator = organizationsBySeries.filter(o => o.typeOfLink === 'creator');
+  const orgaContributor = organizationsBySeries.filter(o => o.typeOfLink === 'contributor')
   return (
     <span>
-      <OrganizationList organizations={organizationsBySeries} title={titleCreator}/>
-      <OrganizationList organizations={organizationsBySeries} title={titleContributor}/>
+      {orgaCreator.length > 0 && <OrganizationList
+        organizations={orgaCreator}
+        title={titleCreator}/>}
+      {orgaContributor.length > 0 && <OrganizationList
+        organizations={orgaContributor}
+        title={titleContributor}/>}
     </span>)
 }
 
