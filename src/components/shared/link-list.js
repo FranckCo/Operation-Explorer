@@ -10,7 +10,6 @@ export default ({ resources }) => {
 	const isReplacedList = filterByTypeOfLink(cleanRes, L.IS_REPLACED);
 	const replacesList = filterByTypeOfLink(cleanRes, L.REPLACES);
 	const seeAlsoList = filterByTypeOfLink(cleanRes, L.SEE_ALSO);
-  console.log(seeAlsoList)
 	return (
 		<span>
 			{filterByTypeOfObject(isReplacedList, 'series').length > 0 && (

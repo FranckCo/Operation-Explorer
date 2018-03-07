@@ -34,7 +34,6 @@ const connector = sparqlConnect(queryBuilder, {
 })
 
 function OrganizationsBySeries({ organizationsBySeries, titleCreator, titleContributor }) {
-  console.log(organizationsBySeries)
   if (organizationsBySeries.length === 0) {
     return <span />;
   }
