@@ -1,8 +1,8 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 
 import {
-  paramsExtractor, pointToUnderscore, stringBuilder, URIToURL, transformProps,
+  paramsExtractor, stringBuilder, URIToURL, transformProps,
   transformPropsAndWrapComponent
 } from './router-mapping';
 
@@ -62,11 +62,8 @@ describe('transform props and wrap component', () => {
         name: 'http://people.com/:firstname/:lastname'
       },
       MyComponent)
-    const wrapper = shallow(<WrappedComponent route="/someone/john/doe" />)
-    //expect(wrapped.children().length).toEqual(1)
-    // expect(
-    //   wrapped.contains(<MyComponent name="http://people.com/john/doe" />))
-    //   .toEqual(true)
+    // Mock location.pathname props, unaccessible for testing
+    const wrapper = shallow(<WrappedComponent location ={ { pathname:'/someone/john/doe' } } />)
     expect(wrapper.find(MyComponent).props().name).toEqual('http://people.com/john/doe')
   })
 })
