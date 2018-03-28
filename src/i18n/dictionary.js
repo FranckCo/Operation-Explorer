@@ -114,6 +114,14 @@ export default {
     results => `Indicateurs de la série (${results})`,
     results => `Series indicators (${results})`
   ],
+  motherFamily: [
+    'Famille mère',
+    'Mother family'
+  ],
+  motherSeries: [
+    'Série mère',
+    'Mother series'
+  ],
   motherOrganization: [
     'mère',
     'mother'

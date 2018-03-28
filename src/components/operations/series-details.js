@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
 import { sparqlConnect, sparqlCombine } from 'sparql-connect';
 import OperationsBySeries from './operations-by-series';
@@ -9,6 +10,7 @@ import NotFound from '../not-found'
 import arrayToObject from '../../utils/array-to-object'
 import operationTypesConnector from '../connectors/operation-types';
 import periodicitiesConnector from '../connectors/periodicities'
+import { familyLink } from './routes';
 import D, { getLang } from 'i18n'
 import { tidyString } from 'utils/string-utils'
 import 'css/style.css';
@@ -21,11 +23,14 @@ const queryBuilder = series => `
   PREFIX insee: <http://rdf.insee.fr/def/base#>
   PREFIX dcterms: <http://purl.org/dc/terms/>
   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-  SELECT ?label ?altLabel ?abstract ?historyNote ?type ?periodicity
+  SELECT ?label ?motherFamily ?motherFamilyLabel ?altLabel ?abstract ?historyNote ?type ?periodicity
   FROM <http://rdf.insee.fr/graphes/operations>
   WHERE {
     <${series}> skos:prefLabel ?label .
     FILTER (lang(?label) = '${getLang()}') .
+    ?motherFamily dcterms:hasPart <${series}> .
+    ?motherFamily skos:prefLabel ?motherFamilyLabel .
+    FILTER (lang(?motherFamilyLabel) = '${getLang()}') .
     OPTIONAL {<${series}> skos:altLabel ?altLabel} .
     OPTIONAL {<${series}> dcterms:abstract ?abstract .
     FILTER (lang(?abstract) = '${getLang()}')} .
@@ -48,8 +53,8 @@ const connector = sparqlCombine(
   seriesDetailsConnector
 )
 
-function SeriesDetails({ series, label, altLabel, abstract, historyNote,
-  type, casd, periodicity, operationTypes, periodicities }) {
+function SeriesDetails({ series, label, motherFamily, motherFamilyLabel, altLabel,
+  abstract, historyNote, type, casd, periodicity, operationTypes, periodicities }) {
 
   const operationTypesObj = arrayToObject(operationTypes, 'type')
   const periodicitiesObj = arrayToObject(periodicities, 'periodicity')
@@ -61,6 +66,11 @@ function SeriesDetails({ series, label, altLabel, abstract, historyNote,
         */}
       </h1>
       <h2>{altLabel}</h2>
+      <h4>{D.motherFamily}{' : '}
+        <Link to={familyLink(motherFamily)}>
+          {motherFamilyLabel}
+        </Link>
+      </h4>
       {type && <p className="label label-pill label-primary">
         {operationTypesObj[type][getLang()]}
       </p>}
