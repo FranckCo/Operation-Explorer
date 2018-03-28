@@ -33,5 +33,5 @@ function FamilyExplorer({ families }) {
 }
 
 export default connector(FamilyExplorer, {
-  loading: () => <Spinner text={D.loadingFamillies}/>
+  loading: () => <Spinner text={D.loadingFamilies}/>
 })

@@ -36,7 +36,7 @@ export default {
     'La liste des familles est vide',
     'Family list is empty'
   ],
-  loadingFamillies: [
+  loadingFamilies: [
     'Chargement de la liste des familles',
     'Family list is loading']
   ,
