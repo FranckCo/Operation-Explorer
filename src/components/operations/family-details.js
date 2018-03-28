@@ -3,6 +3,7 @@ import { sparqlConnect } from 'sparql-connect';
 import SeriesByFamily from './series-by-family';
 import OperationsByFamily from './operations-by-family';
 import NotFound from '../not-found'
+import Spinner from 'components/shared/spinner'
 import D, { getLang } from 'i18n'
 import { tidyString } from 'utils/string-utils'
 
@@ -41,5 +42,6 @@ function FamilyDetails({ family, label, abstract }) {
 
 export default connector(FamilyDetails, {
   error: ({ family }) => <NotFound
-    message={`The family ${family} was not found.`} />
+    message={`The family ${family} was not found.`} />,
+  loading: () => <Spinner text={D.loadingFamily}/>
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { sparqlConnect } from 'sparql-connect';
 import NotFound from '../not-found'
+import Spinner from 'components/shared/spinner'
 import D, { getLang } from 'i18n'
 import { seriesLink } from './routes';
 import { tidyString } from 'utils/string-utils'
@@ -51,5 +52,6 @@ function OperationDetails({ label, motherSeries, motherSeriesLabel,
 
 export default connector(OperationDetails, {
   error: ({ operation }) => <NotFound
-    message={D.operationNotFound(operation)} />
+    message={D.operationNotFound(operation)} />,
+  loading: () => <Spinner text={D.loadingOperation}/>
 });

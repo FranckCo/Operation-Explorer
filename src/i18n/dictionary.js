@@ -16,8 +16,12 @@ export default {
   ],
   loadingOperations: [
     'Chargement de la liste des opérations',
-    'Operation list is loading']
-  ,
+    'Operation list is loading'
+  ],
+  loadingOperation: [
+    "Chargement de l'opération",
+    'Operation is loading'
+  ],
   operationNotFound: [
     operation => `L'opération ${operation} est introuvable.`,
     operation => `The operation ${operation} was not found.`
@@ -38,8 +42,12 @@ export default {
   ],
   loadingFamilies: [
     'Chargement de la liste des familles',
-    'Family list is loading']
-  ,
+    'Family list is loading'
+  ],
+  loadingFamily: [
+    'Chargement de la famille',
+    'Family is loading'
+  ],
   serie: ['Série', 'Series'],
   series: ['Séries', 'Series'],
   seriesList: [
@@ -60,8 +68,12 @@ export default {
   ],
   loadingSeries: [
     'Chargement de la liste des séries',
-    'Serie list is loading']
-  ,
+    'Series list is loading'
+  ],
+  loadingASeries: [
+    'Chargement de la série',
+    'Series is loading'
+  ],
   emptyProductList: [
     'La liste des produits est vide',
     'Product list is empty'
@@ -74,8 +86,12 @@ export default {
   ],
   loadingProducts: [
     'Chargement de la liste des produits',
-    'Product list is loading']
-  ,
+    'Product list is loading'
+  ],
+  loadingProduct: [
+    'Chargement du produit',
+    'Product is loading'
+  ],
   organization: ['Organisation', 'Organization'],
   organizations: ['Organisations', 'Organizations'],
   organizationList: [
@@ -88,8 +104,12 @@ export default {
   ],
   loadingOrganizations: [
     'Chargement de la liste des organisations',
-    'Organisation list is loading']
-  ,
+    'Organisation list is loading'
+  ],
+  loadingOrganization: [
+    "Chargement de l'organisation",
+    'Organisation is loading'
+  ],
   isolatedOrganization: [
     'Cette organisation ne possède ni mère, ni fille',
     'This organization has no mother or daughters'

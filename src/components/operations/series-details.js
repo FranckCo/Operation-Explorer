@@ -7,6 +7,7 @@ import ProductsBySeries from '../products/products-by-series';
 import LinkedResources from '../shared/link-explorer'
 import OrganizationsBySeries from '../organizations/organizations-by-series'
 import NotFound from '../not-found'
+import Spinner from 'components/shared/spinner'
 import arrayToObject from '../../utils/array-to-object'
 import operationTypesConnector from '../connectors/operation-types';
 import periodicitiesConnector from '../connectors/periodicities'
@@ -95,5 +96,6 @@ function SeriesDetails({ series, label, motherFamily, motherFamilyLabel, altLabe
 
 export default connector(SeriesDetails, {
   error: ({ series }) => <NotFound
-    message={D.seriesNotFound(series)} />
+    message={D.seriesNotFound(series)} />,
+  loading: () => <Spinner text={D.loadingASeries}/>
 });

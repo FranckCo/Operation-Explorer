@@ -2,6 +2,7 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import { sparqlConnect } from 'sparql-connect';
 import OrganizationHierarchy from './organization-hierarchy';
+import Spinner from 'components/shared/spinner'
 import D from 'i18n'
 
 /**
@@ -41,4 +42,6 @@ function OrganizationDetails({ organization, label, seeAlso }) {
   );
 }
 
-export default connector(OrganizationDetails);
+export default connector(OrganizationDetails, {
+  loading: () => <Spinner text={D.loadingOrganization}/>
+});

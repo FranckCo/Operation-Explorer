@@ -3,6 +3,7 @@ import { sparqlConnect } from 'sparql-connect';
 import SeriesByProduct from '../operations/series-by-product';
 import LinkedResources from '../shared/link-explorer'
 import NotFound from '../not-found'
+import Spinner from 'components/shared/spinner'
 import { tidyString } from 'utils/string-utils'
 import D, { getLang} from 'i18n'
 
@@ -45,5 +46,6 @@ function ProductDetails({ product, label, abstract, historyNote }) {
 
 export default connector(ProductDetails, {
   error: ({ product }) => <NotFound
-    message={`The product ${product} was not found.`} />
+    message={`The product ${product} was not found.`} />,
+  loading: () => <Spinner text={D.loadingProduct}/>
 });
