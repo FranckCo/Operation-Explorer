@@ -119,8 +119,8 @@ export default {
     results => `Family series (${results})`
   ],
   seriesByProduct: [
-    results => `Séries impliquant l'indicateur (${results})`,
-    results => `Series involving indicator (${results})`
+    results => `Séries utilisées pour produire l'indicateur (${results})`,
+    results => `Series from which the indicator is produced (${results})`
   ],
   operationsByFamily: [
     results => `Opérations de la famille (${results})`,
@@ -131,8 +131,8 @@ export default {
     results => `Series operations (${results})`
   ],
   productsBySeries: [
-    results => `Indicateurs de la série (${results})`,
-    results => `Series indicators (${results})`
+    results => `Indicateurs produits à partir de la série (${results})`,
+    results => `Indicators produced from the series (${results})`
   ],
   motherFamily: [
     'Famille mère',
