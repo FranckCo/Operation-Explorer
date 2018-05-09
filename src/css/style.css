@@ -147,10 +147,51 @@ img.dila-logo {
   display: inline-block;
 }
 
+.sims {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 0.2%;
+  border: ridge 2px #e7e7e7;
+  border-radius: 10px;
+}
+
+.sims-title {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	padding: 0.2%;
+	font-size: 150%;
+	font-weight: bold;
+	border: ridge 2px #e7e7e7;
+	border-radius: 10px;
+}
+
 .abstract {
   background-color: #ffffe0;
 }
 
 .historyNote {
 	background-color: #f0f8ff;
+}
+
+.centered {
+	text-align: center;
+}
+
+.buttonLikeLink {
+	background: none !important;
+	color: #0000ff;
+	border: none;
+	padding: 0 !important;
+	font: inherit;
+	/*border is optional*/
+	border-bottom: 1px solid #0000ff;
+	cursor: pointer;
+}
+
+.buttonLikeDiv {
+	background: none !important;
+	color: black;
+	border: none;
+	padding: 0 !important;
+	font: inherit;
 }

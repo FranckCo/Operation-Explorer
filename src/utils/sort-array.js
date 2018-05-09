@@ -1,4 +1,4 @@
-import deburr from 'lodash/deburr'
+import deburr from 'lodash/deburr';
 
 export const sortArrayByKey = key =>
 	/**
@@ -19,3 +19,13 @@ export const sortArrayByKey = key =>
 			return bUp > aUp ? order : bUp === aUp ? 0 : -order;
 		});
 	};
+
+export const addSimsKeySort = simsStructure =>
+	simsStructure.map(s => ({
+		...s,
+		key: s.mas
+			.slice(s.mas.lastIndexOf('/') + 3)
+			.split('.')
+			.map(e => (e.length === 2 ? e : `0${e}`))
+			.join(''),
+	}));

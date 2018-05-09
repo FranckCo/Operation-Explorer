@@ -230,4 +230,20 @@ export default {
     results => `Contributeur (${results})`,
     results => `Contributor (${results})`
   ],
+  simsNotFound: [
+    `Le rapport qualité n'existe pas`,
+    `Quality report does not exist`
+  ],
+  loadingASims: [
+    'Chargement du rapport qualité',
+    'Quality report is loading'
+  ],
+  btnBack: [
+    'Retour',
+    'Back'
+  ],
+  unknowType: [
+    'Attribut de type inconnu',
+    'Type of attribut is unknow'
+  ],
 }

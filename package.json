@@ -16,7 +16,10 @@
     "react-test-renderer": "^15.6.1"
   },
   "dependencies": {
+    "dompurify": "^1.0.4",
     "lodash.deburr": "^4.1.0",
+    "moment": "^2.22.1",
+    "moment-range": "^4.0.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-collapsible": "^1.4.0",
@@ -24,6 +27,8 @@
     "react-loading": "^1.0.4",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
+    "react-sortable-tree": "^2.1.1",
+    "react-sortable-tree-theme-file-explorer": "^1.1.2",
     "react-tooltip": "^3.3.0",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",
