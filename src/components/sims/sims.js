@@ -22,7 +22,7 @@ class Sims extends Component {
 
 		const structure = order(addSimsKeySort(simsStructure));
 
-		const reportTitle = simsReport.find(r => r.label).label;
+		const reportTitle = simsReport.find(r => r.title).title;
 		const subTitle =
 			activeAttr &&
 			simsStructure.find(s => s.mas.endsWith(`/${activeAttr}`)).masLabel;

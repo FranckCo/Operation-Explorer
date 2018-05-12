@@ -13,14 +13,14 @@ const queryBuilder = sims => `
 	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 	PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-	SELECT ?label ?attr ?type ?date ?note
+	SELECT ?title ?attr ?type ?date ?note ?code
 	FROM <http://rdf.insee.fr/graphes/qualite/rapport/${sims.slice(
 		sims.lastIndexOf('/') + 1
 	)}>
 	WHERE {
 		{
-			<${sims}> rdfs:label ?label .
-    	FILTER (lang(?label) = '${getLang()}') .
+			<${sims}> rdfs:label ?title .
+    	FILTER (lang(?title) = '${getLang()}') .
 		}
 		UNION
 		{

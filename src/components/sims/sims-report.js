@@ -6,7 +6,7 @@ import D from 'i18n/dictionary'
 
 export default ({ report, activeAttr, subTitle }) => {
 	const attr = report
-		.filter(r => !r.label && r.attr.endsWith(`/${activeAttr}`))
+		.filter(r => !r.title && r.attr.endsWith(`/${activeAttr}`))
 		.map((a, i) => {
 			if (a.type === DATE) return <Date key={i} date={a.date} />;
 			if (a.type === RICH_TEXT) return <RichText key={i} text={a.note} />;
