@@ -246,4 +246,8 @@ export default {
     'Attribut de type inconnu',
     'Type of attribut is unknow'
   ],
+  unknowCode: [
+    "L'attribut n'appartient à aucune liste de codes",
+    'Attribute does not belong to any code list'
+  ],
 }

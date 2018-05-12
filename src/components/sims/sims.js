@@ -16,7 +16,7 @@ class Sims extends Component {
 	}
 	render() {
 		const { activeAttr } = this.state;
-		const { simsStructure, simsReport } = this.props;
+		const { simsStructure, simsReport, codes } = this.props;
 
 		if (simsReport.length === 0) return <NotFound message={D.simsNotFound} />;
 
@@ -56,6 +56,7 @@ class Sims extends Component {
 								report={simsReport}
 								activeAttr={activeAttr}
 								subTitle={subTitle}
+								codes={codes}
 							/>
 						)}
 					</div>
