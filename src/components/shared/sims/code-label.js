@@ -4,9 +4,7 @@ import './code-label.css';
 
 export default ({ code, codes }) => {
 	// TODO .toUpperCase(), really ?
-	const content = codes.find(
-		c => c.codeURI.toUpperCase() === code.toUpperCase()
-	);
+	const content = codes.find(c => c.codeURI === code);
 	if (!content)
 		return (
 			<div className="col-md-8 col-md-offset-2">
