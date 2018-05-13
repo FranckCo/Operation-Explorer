@@ -5,6 +5,7 @@ import { sparqlConnect, sparqlCombine } from 'sparql-connect';
 import OperationsBySeries from './operations-by-series';
 import ProductsBySeries from '../products/products-by-series';
 import LinkedResources from '../shared/link-explorer'
+import SimsBySeries from '../sims/sims-by-series'
 import OrganizationsBySeries from '../organizations/organizations-by-series'
 import NotFound from '../not-found'
 import Spinner from 'components/shared/spinner'
@@ -82,6 +83,7 @@ function SeriesDetails({ series, label, motherFamily, motherFamilyLabel, altLabe
       <div className="abstract">{tidyString(abstract)}</div>
       {historyNote && <p className="rubric-title">{D.historyNote}</p>}
       <div className="historyNote">{tidyString(historyNote)}</div>
+      <SimsBySeries series={series} title={D.simsBySeries} />
       <OperationsBySeries series={series} title={D.operationsBySeries} />
       <ProductsBySeries series={series} title={D.productsBySeries} />
       <LinkedResources resource={series} />

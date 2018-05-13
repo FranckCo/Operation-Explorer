@@ -230,9 +230,29 @@ export default {
     results => `Contributeur (${results})`,
     results => `Contributor (${results})`
   ],
+  simsBySeries: [
+    results => `Rapports de métadonnées de la série (${results})`,
+    results => `Series metadata report (${results})`
+  ],
+  emptySimsList: [
+    'La liste des rapport de métadonnées est vide',
+    'Metadat report list is empty'
+  ],
+  simsList: [
+    results => `Liste des rapports de métadonnées (${results})`,
+    results => `List of metadata report (${results})`
+  ],
+  seriesHoldsNoSims: [
+    "Aucun rapport de métadonnées n'est issu de cette série",
+    'No metadata report are issued from this series'
+  ],
   simsNotFound: [
     `Le rapport qualité n'existe pas`,
     `Quality report does not exist`
+  ],
+  loadingSims: [
+    'Chargement des rapports qualité',
+    'Quality reports are loading'
   ],
   loadingASims: [
     'Chargement du rapport qualité',

@@ -14,17 +14,23 @@ import * as T from 'utils/constants';
 const queryBuilder = sims => `
 	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-	PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+	PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+	PREFIX sdmx-mm: <http://www.w3.org/ns/sdmx-mm#>
 	PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-	SELECT ?title ?attr ?type ?date ?note ?code
+	SELECT ?title ?target ?attr ?type ?date ?note ?code
 	FROM <http://rdf.insee.fr/graphes/qualite/rapport/${sims.slice(
 		sims.lastIndexOf('/') + 1
 	)}>
+	FROM <http://rdf.insee.fr/graphes/operations>
 	WHERE {
 		{
 			<${sims}> rdfs:label ?title .
     	FILTER (lang(?title) = '${getLang()}') .
+		}
+		UNION
+		{
+			<${sims}> sdmx-mm:target ?target .
 		}
 		UNION
 		{

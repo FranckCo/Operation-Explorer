@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import BackBtn from './back-btn';
 import SimsStructure from './sims-structure';
 import SimsReport from './sims-report';
 import NotFound from '../not-found';
@@ -33,16 +33,7 @@ class Sims extends Component {
 						{reportTitle}
 					</div>
 				</div>
-				<div className="row">
-					<Link
-						onClick={e => e.preventDefault()}
-						disabled
-						className="btn btn-primary btn-lg col-md-1 col-md-offset-1"
-						to={'/'}
-					>
-						{D.btnBack}
-					</Link>
-				</div>
+				<BackBtn target={simsReport.find(r => r.target)} />
 				<div className="row sims">
 					<div className="col-md-4">
 						<SimsStructure

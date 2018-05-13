@@ -4,7 +4,7 @@ import SimsContainer from './sims-container';
 import config from 'config';
 import { processRoute } from '../../utils/router-mapping';
 
-export const { WrappedComponent: SimsWrapped, link: familyLink } = processRoute(
+export const { WrappedComponent: SimsWrapped, link: simsLink } = processRoute(
 	`${config.baseHost}/qualite/rapport/:sims`,
 	'/qualite/rapport/sims/:sims',
 	SimsContainer
