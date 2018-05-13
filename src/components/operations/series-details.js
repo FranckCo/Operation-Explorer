@@ -57,7 +57,7 @@ const connector = sparqlCombine(
 
 function SeriesDetails({ series, label, motherFamily, motherFamilyLabel, altLabel,
   abstract, historyNote, type, casd, periodicity, operationTypes, periodicities }) {
-
+    
   const operationTypesObj = arrayToObject(operationTypes, 'type')
   const periodicitiesObj = arrayToObject(periodicities, 'periodicity')
   return (
@@ -68,11 +68,11 @@ function SeriesDetails({ series, label, motherFamily, motherFamilyLabel, altLabe
         */}
       </h1>
       <h2>{altLabel}</h2>
-      <h4>{D.motherFamily}{' : '}
+      {motherFamily && <h4>{D.motherFamily}{' : '}
         <Link to={familyLink(motherFamily)}>
           {motherFamilyLabel}
         </Link>
-      </h4>
+      </h4>}
       {type && <p className="label label-pill label-primary">
         {operationTypesObj[type][getLang()]}
       </p>}
