@@ -6,6 +6,7 @@ import codes from 'components/connectors/codes';
 import NotFound from '../not-found';
 import Spinner from 'components/shared/spinner';
 import D, { getLang } from 'i18n';
+import config from 'config';
 import * as T from 'utils/constants';
 /**
  * Builds the query that retrieves the details on sims structure.
@@ -40,7 +41,7 @@ const queryBuilder = sims => `
 		UNION
 		{
 			<${sims}> ?attr ?code .
-			FILTER ( REGEX(STR(?code), 'http://id.insee.fr/codes/'))
+			FILTER ( REGEX(STR(?code), '${config.baseHost}/codes/'))
 			BIND ("${T.CODE}" as ?type)
 		}
 	}
