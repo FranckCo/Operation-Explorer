@@ -43,6 +43,11 @@ function Menu({ lang, location }) {
             </ul>
             <ul className="nav navbar-nav pull-right">
               <li>
+                <Link className={/^\/help/.test(location.pathname) && 'active'} to="/help">
+                  {D.help}
+                </Link>
+              </li>
+              <li>
                 <LangPicker location={location} lang={lang} />
               </li>
             </ul>

@@ -6,6 +6,7 @@ import OperationRoutes from './operations/routes';
 import SIMSRoutes from './sims/routes';
 import Menu from './menu'
 import Login from './login'
+import HelpExplorer from 'components/help'
 import NotFound from './not-found'
 import config from 'config'
 
@@ -48,6 +49,7 @@ export default class App extends Component {
           <Route exact path="/">
             <Redirect to="/operations/series" />
           </Route>
+          <Route exact path="/help" component={HelpExplorer} />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>

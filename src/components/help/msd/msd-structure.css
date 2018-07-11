@@ -1,0 +1,27 @@
+div.rstcustom__rowLabel {
+	display: none;
+}
+
+.tree {
+	padding-top: 5%;
+}
+
+.masItem {
+	background: none !important;
+	text-decoration: none;
+	color: black;
+	border: none;
+	padding: 0 !important;
+	font: inherit;
+	cursor: pointer;
+}
+
+.masItem:hover {
+	color: #DF247C;
+	font-weight: bold;
+}
+
+.masItemSelected {
+	color: #DF247C;
+	font-weight: bold;
+}
