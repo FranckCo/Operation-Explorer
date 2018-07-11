@@ -34,7 +34,7 @@ class Sims extends Component {
 					</div>
 				</div>
 				<BackBtn target={simsReport.find(r => r.target)} />
-				<div className="row sims">
+				<div className="row msd-container">
 					<div className="col-md-4">
 						<SimsStructure
 							structure={structure}
