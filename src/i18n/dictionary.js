@@ -266,8 +266,80 @@ export default {
     'Attribut de type inconnu',
     'Type of attribut is unknow'
   ],
+  richeTextType: [
+    'Texte riche + URI',
+    'Rich text + URI'
+  ],
+  textType: [
+    'Texte',
+    'Text'
+  ],
+  dateType: [
+    'Date',
+    'Date'
+  ],
   unknowCode: [
     "L'attribut n'appartient à aucune liste de codes",
     'Attribute does not belong to any code list'
+  ],
+  help:[
+    "Aide",
+    'Help'
+  ],
+  helpTitle:[
+    "Structure des métadonnées",
+    'Metadata structure'
+  ],
+  msdNotFound: [
+    `La structure des métadonnées n'existe pas`,
+    `Metadata structure definition does not exist`
+  ],
+  loadingMsd: [
+    'Chargement de la structure des métadonnées',
+    'Metadata structure definition is loading'
+  ],
+  masIdNotFound: [
+    `La propriété d'attribut de métadonnées n'existe pas`,
+    `Metadata attribut property does not exist`
+  ],
+  loadingMasId: [
+    `Chargement de la propriété d'attribut de métadonnées`,
+    `Metadata attribut property is loading`
+  ],
+  labelFr: [
+    `Libellé français`,
+    `French label`
+  ],
+  labelEn: [
+    `Libellé anglais`,
+    `English label`
+  ],
+  range: [
+    `Portée`,
+    `Range`
+  ],
+  presentational: [
+    `Attribut présentationnel`,
+    `Presentational attribut`
+  ],
+  yes: [
+    `Oui`,
+    `Yes`
+  ],
+  no: [
+    `Non`,
+    `No`
+  ],
+  codeList: [
+    `Liste de codes`,
+    `Code list`
+  ],
+  codeListNotFound: [
+    `La liste de codes n'existe pas`,
+    `Code list does not exist`
+  ],
+  loadingCodeList: [
+    `Chargement de la liste de codes`,
+    `Code list is loading`
   ],
 }
