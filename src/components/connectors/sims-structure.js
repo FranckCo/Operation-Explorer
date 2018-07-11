@@ -1,4 +1,5 @@
 import { sparqlConnect } from 'sparql-connect';
+import { getLang } from 'i18n';
 
 const queryBuilder = () => `
 	PREFIX sdmx-mm: <http://www.w3.org/ns/sdmx-mm#>
@@ -8,6 +9,7 @@ const queryBuilder = () => `
 	WHERE {
     <http://id.insee.fr/qualite/simsv2fr/reportStructure> sdmx-mm:metadataAttributeSpecification ?mas .
     ?mas rdfs:label ?masLabel ; sdmx-mm:metadataAttributeProperty ?map .
+		FILTER(lang(?masLabel) = '${getLang()}')
 	  OPTIONAL {?mas sdmx-mm:parent ?parent }
 	  OPTIONAL {?mas sdmx-mm:isPresentational ?presentational }
 	  OPTIONAL {?map rdfs:range ?range }
