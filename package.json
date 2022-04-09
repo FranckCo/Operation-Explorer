@@ -18,7 +18,7 @@
   "dependencies": {
     "dompurify": "^1.0.4",
     "lodash.deburr": "^4.1.0",
-    "moment": "^2.22.1",
+    "moment": "^2.29.2",
     "moment-range": "^4.0.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
